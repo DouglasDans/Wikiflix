@@ -1,0 +1,83 @@
+
+.header-container{
+    position: absolute;
+    background-color: var(--color3);
+    height: 100vh;
+    width: 230px;
+    padding: 40px 30px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+}
+
+.header-container .logo{
+    width: 120px;
+}
+
+.header-container .menu-title{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1rem;
+    color: var(--color7);
+    font-weight: bold;
+}
+
+.header-container nav{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header-container nav ul{
+    position: absolute;
+    margin-top: 35px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+
+.header-container .nav-link-button{
+    font-family: 'Quicksand', sans-serif;
+    list-style: none;
+    padding: 0.6rem;
+    margin: 0 1rem;
+    width: 100%;
+    border-radius: 10px;
+}
+.nav-link-button a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.nav-link-button .material-symbols-outlined, .nav-link-button .material-symbols-rounded{
+    color: var(--color9);
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.nav-link-button .titleLink {
+    color: var(--color12);
+    font-weight: 500;
+}
+
+.indicator-nav{
+    position: absolute;
+    margin-left: 199.2px ;
+    margin-top: -24px;
+    height: 20px;
+    width: 5px;
+    background-color: var(--red);
+    border-radius: 1rem 0 0 1rem;
+    opacity: 0;
+}
+
+.active-indicator-nav{
+    background-color: var(--red);
+    opacity: 1;
+}
