@@ -1,0 +1,27 @@
+
+.search-container{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-input{
+    padding: 0.6rem 1rem;
+    padding-left: 3rem;
+    border: 0;
+    border-radius: 15px;
+    background-color: var(--color3);
+    color: var(--color13);
+    font-size: 0.8rem;
+}
+.search-input::placeholder{
+    color: var(--color6);
+}
+
+.userImage{
+    height: 50px;
+    width: 50px;
+    background-color: var(--color3);
+    border-radius: 50px;
+}

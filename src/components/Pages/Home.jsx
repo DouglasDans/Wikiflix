@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Navbar from "../Navbar";
+import SearchContainer from "../SearchContainer";
 
 class Home extends React.Component{
     render(){
@@ -7,7 +8,7 @@ class Home extends React.Component{
             <Fragment>
                 <Navbar />
                 <main className="container-main">
-                    
+                    <SearchContainer/>
                 </main>
             </Fragment>
         )

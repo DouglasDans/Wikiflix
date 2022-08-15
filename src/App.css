@@ -21,7 +21,9 @@
 
 }
 body{
-    background-color: var(--color1);
+    background-color: var(--color2);
+    color: var(--color12);
+    font-family: 'Open Sans', sans-serif;
 }
 
 p, small{
@@ -38,5 +40,5 @@ h1, h2, h3, h4, h5, h6 {
     
     width: auto;
     height: 100%;
-    background-color: var(--color1);
+    background-color: var(--color2);
 }
