@@ -6,7 +6,16 @@
     align-items: center;
 }
 
+.search-icon{
+    position: absolute;
+    font-size: 1.3rem;
+    padding: 0.5rem 0.9rem;
+    color: var(--color9);
+}
+
 .search-input{
+    width: 312px;
+
     padding: 0.6rem 1rem;
     padding-left: 3rem;
     border: 0;
@@ -16,6 +25,8 @@
     font-size: 0.8rem;
 }
 .search-input::placeholder{
+    font-size: 0.9rem;
+    font-family: var(--open-sans);
     color: var(--color6);
 }
 

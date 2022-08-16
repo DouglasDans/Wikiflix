@@ -19,6 +19,9 @@
     --color12: #ECEFFF;
     --red: #AE1717;
 
+    --open-sans: font-family: 'Open Sans','Arial', sans-serif;
+    --quicksand: font-family: 'Quicksand', sans-serif;
+
 }
 body{
     background-color: var(--color2);
