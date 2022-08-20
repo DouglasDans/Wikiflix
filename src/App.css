@@ -19,10 +19,20 @@
     --color12: #ECEFFF;
     --red: #AE1717;
 
-    --open-sans: font-family: 'Open Sans','Arial', sans-serif;
-    --quicksand: font-family: 'Quicksand', sans-serif;
-
 }
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    width: 8px;
+    background-color: var(--color1);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color5);
+  }
+  
+
 body{
     background-color: var(--color2);
     color: var(--color12);
@@ -45,3 +55,4 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     background-color: var(--color2);
 }
+

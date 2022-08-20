@@ -11,24 +11,20 @@ function Home(){
     //useEffect - Serve para lidar com os efeitos colaterais de usar dados externos como uma api
 
     useEffect(() => {
-        fetchPopularGames()
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=2b22702bf9dc45986d22dd21add08ec7&language=pt-BR&page=1').then(response => response.json()).then(data => {
+            console.log(data.results)
+            setMovies(data.results)})
+        
+        
     },[]);
-
+    // console.log(movies);
     return(
         <Fragment>
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                <div className="home-container">
-                    <Carousel/>
-                    {movies.map(movie => {
-                        return(
-                            <div>ss</div>
-                        )
-                    })}
-                </div>
-
-                
+                <Carousel itens={movies} title={'Filmes em Tendência'} coverType={'large'}/>
+                <Carousel itens={movies} title={'Populares'} coverType={'small'}/>
             </main>
         </Fragment>
     )
