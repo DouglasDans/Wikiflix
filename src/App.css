@@ -30,7 +30,10 @@
 }
 ::-webkit-scrollbar-thumb {
     background: var(--color5);
-  }
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color6);
+}
   
 
 body{
