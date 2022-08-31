@@ -50,13 +50,7 @@
     /* height: 215px;
     width: 380px; */
     border-radius: 15px;
-
     display: flex;
-
-}
-
-.carousel-item-container img {
-    border-radius: 10px;
 }
 
 .title-carousel-item{
@@ -81,3 +75,13 @@
     font-weight: 500;
 }
 
+.carousel-img-large{
+    height: 215px;
+    width: 380px;
+    border-radius: 10px;
+}
+.carousel-img-small{
+    height: 165px;
+    width: 110px;
+    border-radius: 10px;
+}
