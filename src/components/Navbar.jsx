@@ -1,10 +1,10 @@
 import React, { Fragment } from "react"
 import {NavLink} from "react-router-dom"
-import logo from "../wikiflix_logo.svg"
 import "./Navbar.css"
 
 export default class Navbar extends React.Component {
 	render() {
+		const logo = process.env.PUBLIC_URL + "img/wikiflix_logo.svg"
 		return (
 			<header className="header-container">
 				<img src={logo} className="logo"/>

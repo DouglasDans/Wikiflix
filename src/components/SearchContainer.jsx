@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./SearchContainer.css"
 
 export default class SearchContainer extends React.Component{
