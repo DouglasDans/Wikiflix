@@ -5,7 +5,6 @@ import './Carousel.css'
 
 
 export default function Carousel(props) {
-    console.log(props.itens);
     if(props.coverType == 'large'){
         return(
             <CarouselLarge itens={props.itens} title={props.title}/>

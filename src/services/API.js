@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -10,13 +9,26 @@ const api = axios.create({
 })
 
 const apiFunctions = {
-    getPopularGames: api.get("/movie/popular", { 
+    getPopularMovies: api.get("/discover/movie", { 
+        params: { 
+            'api_key': API_KEY,
+            'language': API_LANGUAGE,
+            "release_date.lte": Date.now() - 100000,
+        } 
+    }),
+    getFilmesBRPopulares: api.get("/movie/popular", { 
         params: { 
             api_key: API_KEY,
             language: API_LANGUAGE
         } 
     }),
-    gg: "ddd"
+    getFilmesCartaz: api.get("/movie/popular", { 
+        params: { 
+            api_key: API_KEY,
+            language: API_LANGUAGE
+        } 
+    }),
+    
 }
 
 export default apiFunctions
