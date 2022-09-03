@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
+import "./Details.css"
 
 export default function Details(){
 
@@ -22,7 +23,9 @@ export default function Details(){
             <Navbar />
             <main className="container-main">
                 <SearchContainer />
-                <div className="container-banner">{details.title}</div>
+                <div className="container-banner">
+                    
+                </div>
             </main>
         </Fragment>
     )
