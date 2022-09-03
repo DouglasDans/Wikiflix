@@ -5,27 +5,42 @@ const API_KEY = "2b22702bf9dc45986d22dd21add08ec7"
 const API_LANGUAGE = "pt-BR"
 
 const api = axios.create({
-    baseURL: BASE_URL
+    baseURL: BASE_URL,
+    region: 'BR'
 })
 
 const apiFunctions = {
+    getTendenciaSemana: api.get("/trending/movie/week", { 
+        params: { 
+            'api_key': API_KEY,
+            'language': API_LANGUAGE
+        } 
+    }),
     getPopularMovies: api.get("/discover/movie", { 
         params: { 
             'api_key': API_KEY,
-            'language': API_LANGUAGE,
-            "release_date.lte": Date.now() - 100000,
+            'language': API_LANGUAGE
         } 
     }),
-    getFilmesBRPopulares: api.get("/movie/popular", { 
+    getFilmesEmBreve: api.get("/movie/upcoming", { 
         params: { 
             api_key: API_KEY,
-            language: API_LANGUAGE
+            language: API_LANGUAGE,
+            region: 'BR'
         } 
     }),
-    getFilmesCartaz: api.get("/movie/popular", { 
+    getFilmesMelhoresAvaliados: api.get("/movie/top_rated", { 
         params: { 
             api_key: API_KEY,
-            language: API_LANGUAGE
+            language: API_LANGUAGE,
+            
+        } 
+    }),
+    getFilmesNosCinemas: api.get("/movie/now_playing", { 
+        params: { 
+            api_key: API_KEY,
+            language: API_LANGUAGE,
+            region: 'BR'
         } 
     }),
     
