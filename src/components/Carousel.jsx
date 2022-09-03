@@ -2,6 +2,7 @@ import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './Carousel.css'
+import { Link } from "react-router-dom";
 
 
 export default function Carousel(props) {
@@ -21,13 +22,13 @@ function CarouselLarge(props){
         const style = { width: 400 };
         return (
             <div className="item" style={style}>
-                <div className='carousel-item-container'>
+                <Link to={`/details/${item.id}`} className='carousel-item-container'>
                     <div className='title-carousel-item'>
                         <h1>{item.title}</h1>
                         <span>{item.release_date}</span>
                     </div>
                     <img className='carousel-img-large' src={'https://image.tmdb.org/t/p/w500/' + item.backdrop_path} />
-                </div>
+                </Link>
             </div>
         );
     })
@@ -73,7 +74,9 @@ function CarouselSmall(props){
         const style = { width: 130 };
         return (
             <div className="item" style={style}>
-                <img className='carousel-img-small' height="165px" width="110px" src={'https://image.tmdb.org/t/p/w500/' + item.poster_path} />
+                <Link to={`/details/${item.id}`}>
+                    <img className='carousel-img-small' height="165px" width="110px" src={'https://image.tmdb.org/t/p/w500/' + item.poster_path} />
+                </Link>
             </div>
         );
     })

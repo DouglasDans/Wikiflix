@@ -10,44 +10,55 @@ const api = axios.create({
 })
 
 const apiFunctions = {
-    getTendenciaSemana: api.get("/trending/movie/week", { 
-        params: { 
-            'api_key': API_KEY,
-            'language': API_LANGUAGE
-        } 
-    }),
-    getPopularMovies: api.get("/discover/movie", { 
-        params: { 
-            'api_key': API_KEY,
-            'language': API_LANGUAGE
-        } 
-    }),
-    getFilmesEmBreve: api.get("/movie/upcoming", { 
-        params: { 
-            api_key: API_KEY,
-            language: API_LANGUAGE,
-            region: 'BR'
-        } 
-    }),
-    getFilmesMelhoresAvaliados: api.get("/movie/top_rated", { 
-        params: { 
-            api_key: API_KEY,
-            language: API_LANGUAGE,
-            
-        } 
-    }),
-    getFilmesNosCinemas: api.get("/movie/now_playing", { 
-        params: { 
-            api_key: API_KEY,
-            language: API_LANGUAGE,
-            region: 'BR'
-        } 
-    }),
-    
+    getDetails: (id) => {
+        return api.get(`/movie/${id}`, { 
+            params: { 
+                'api_key': API_KEY,
+                'language': API_LANGUAGE
+            } 
+        })
+    },
+    apiMovieFunctions: {
+        getTendenciaSemana: api.get("/trending/movie/week", { 
+            params: { 
+                'api_key': API_KEY,
+                'language': API_LANGUAGE
+            } 
+        }),
+        getPopularMovies: api.get("/discover/movie", { 
+            params: { 
+                'api_key': API_KEY,
+                'language': API_LANGUAGE
+            } 
+        }),
+        getFilmesEmBreve: api.get("/movie/upcoming", { 
+            params: { 
+                api_key: API_KEY,
+                language: API_LANGUAGE,
+                region: 'BR'
+            } 
+        }),
+        getFilmesMelhoresAvaliados: api.get("/movie/top_rated", { 
+            params: { 
+                api_key: API_KEY,
+                language: API_LANGUAGE,
+                
+            } 
+        }),
+        getFilmesNosCinemas: api.get("/movie/now_playing", { 
+            params: { 
+                api_key: API_KEY,
+                language: API_LANGUAGE,
+                region: 'BR'
+            } 
+        }),
+    },
+    apiTVFunctions: {
+
+    }
 }
 
 export default apiFunctions
-
 
 
 

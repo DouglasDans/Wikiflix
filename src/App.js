@@ -5,6 +5,7 @@ import Home from "./components/Pages/Home";
 import Filmes from "./components/Pages/Filmes";
 import Series from "./components/Pages/Series";
 import Watchlist from "./components/Pages/Watchlist";
+import Details from "./components/Pages/Details";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route exact path="/filmes" element={<Filmes/>} />
       <Route exact path="/series" element={<Series/>} />
       <Route exact path="/watchlist" element={<Watchlist/>} />
+      <Route exact path="/details/:id" element={<Details/>} />
     </Routes>
   );
 }

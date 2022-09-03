@@ -9,34 +9,28 @@ export default function Home(){
     const [moviesNosCinemas, setMoviesNosCinemas] = useState([])
     const [moviesMelhoresAvaliados, setMoviesMelhoresAvaliados] = useState([])
     const [moviesEmBreve, setMoviesEmBreve] = useState([])
-    const [moviesRecemLancados, setRecemLancados] = useState([])
 
     useEffect(() => {
-        apiFunctions.getTendenciaSemana
+        apiFunctions.apiMovieFunctions.getTendenciaSemana
             .then((response) => {setMoviesTendenciaSemana(response.data.results)})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.getFilmesNosCinemas
+        apiFunctions.apiMovieFunctions.getFilmesNosCinemas
             .then((response) => {setMoviesNosCinemas(response.data.results)})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.getFilmesMelhoresAvaliados
+        apiFunctions.apiMovieFunctions.getFilmesMelhoresAvaliados
             .then((response) => {setMoviesMelhoresAvaliados(response.data.results)})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.getFilmesEmBreve
+        apiFunctions.apiMovieFunctions.getFilmesEmBreve
             .then((response) => {setMoviesEmBreve(response.data.results)})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-        // apiFunctions.getFilmeRecemLancados
-        //     .then((response) => {setRecemLancados(response.data.results)})
-        //     .catch((err) => {
-        //     console.error("ops! ocorreu um erro" + err);
-        // });
 
     }, []);
     return(
