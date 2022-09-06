@@ -3,6 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "2b22702bf9dc45986d22dd21add08ec7"
 const API_LANGUAGE = "pt-BR"
+const API_IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
 
 const api = axios.create({
     baseURL: BASE_URL,
@@ -10,6 +11,7 @@ const api = axios.create({
 })
 
 const apiFunctions = {
+    API_IMAGE_URL: API_IMAGE_URL,
     getDetails: (id) => {
         return api.get(`/movie/${id}`, { 
             params: { 

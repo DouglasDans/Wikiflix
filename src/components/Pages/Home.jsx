@@ -42,7 +42,6 @@ export default function Home(){
                 <Carousel itens={moviesNosCinemas} title={'Atualmente Nos Cinemas'} coverType={'small'}/>
                 <Carousel itens={moviesEmBreve} title={'Futuros Lançamentos'} coverType={'small'}/>
                 <Carousel itens={moviesMelhoresAvaliados} title={'Melhores Avaliados'} coverType={'large'}/>
-                {/* <Carousel itens={moviesRecemLancados} title={'Recém-Lançados'} coverType={'small'}/> */}
                 {/* <Carousel itens={movies} title={'Melhores filmes de 90min'} coverType={'small'}/> */}
             </main>
         </Fragment>

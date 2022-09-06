@@ -12,7 +12,7 @@ export default function Details(){
 
     useEffect(() => {
         apiFunctions.getDetails(id)
-            .then((response) => {setDetails(response.data)})
+            .then((response) => {setDetails(response.data);console.log(response.data);})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
@@ -24,7 +24,32 @@ export default function Details(){
             <main className="container-main">
                 <SearchContainer />
                 <div className="container-banner">
-                    
+                    <div className="bg-img-banner">
+                        <img src={apiFunctions.API_IMAGE_URL + details.backdrop_path} />
+                    </div>
+                    <div className="gradient-banner"></div>
+                    <div className="container-details-banner">
+                        <div className="button-voltar">Voltar</div>
+                        <div className="container-details-info">
+                            <div className="top-container">
+                                <div className="left-container">
+                                    <img src={apiFunctions.API_IMAGE_URL + details.poster_path}/>
+                                </div>
+                                <div className="right-container">
+                                    <div className="info-title">
+                                        <h1>{details.title}</h1>
+                                        <div>
+                                            <span>{details.release_date}</span>
+                                            <span>{details.runtime + " Minutos"}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bottom-container">
+                                aa
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
         </Fragment>

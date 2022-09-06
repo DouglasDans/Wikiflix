@@ -1,0 +1,77 @@
+.container-banner{
+    height: 450px;
+}
+
+.gradient-banner{
+    height: 450px;
+    width: 50%;
+    background: linear-gradient(to left, rgba(0,0,0,0), var(--color2) 50%, var(--color2) 75%);    position: absolute;
+    z-index: 1;
+}
+
+.bg-img-banner img{
+    width: 60%;
+    height: 450px;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0.4;
+    right: 0;
+    z-index: 0;
+}
+
+.container-details-banner{
+    height: 450px;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.container-details-banner .button-voltar{
+    padding-left: 1.9rem;
+    position: absolute;
+    top:0;
+}
+
+.container-details-info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 3.4rem;
+}
+.container-details-info .top-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.container-details-info .left-container{
+    height: 165px;
+    width: 110px;
+    grid-area: left-info-details;
+}
+
+.container-details-info .left-container img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.container-details-info .right-container{
+
+}
+
+.info-title{
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+.info-title h1{
+    max-width: 30vw;
+}
+
+.container-details-info .bottom-container{
+    grid-area: bottom-info-details;
+    background-color: blueviolet;
+}
