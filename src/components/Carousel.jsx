@@ -20,12 +20,13 @@ export default function Carousel(props) {
 function CarouselLarge(props){
     const itens = props.itens.map((item, index) => {
         const style = { width: 400 };
+        const date = new Date(item.release_date)
         return (
             <div className="item" style={style}>
                 <Link to={`/details/${item.id}`} className='carousel-item-container'>
                     <div className='title-carousel-item'>
                         <h1>{item.title}</h1>
-                        <span>{item.release_date}</span>
+                        <span>{date.getFullYear()}</span>
                     </div>
                     <img className='carousel-img-large' src={'https://image.tmdb.org/t/p/w500/' + item.backdrop_path} />
                 </Link>

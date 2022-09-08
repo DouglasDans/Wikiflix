@@ -19,7 +19,7 @@
     padding: 0.6rem 1rem;
     padding-left: 3rem;
     border: 0;
-    border-radius: 15px;
+    border-radius: 0.6rem;
     background-color: var(--color3);
     color: var(--color13);
     font-size: 0.8rem;

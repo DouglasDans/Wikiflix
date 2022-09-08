@@ -16,7 +16,9 @@ export default function Details(){
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-    }, []);
+    },[]);
+
+    const date = new Date(details.release_date)
 
     return(
         <Fragment>
@@ -29,7 +31,12 @@ export default function Details(){
                     </div>
                     <div className="gradient-banner"></div>
                     <div className="container-details-banner">
-                        <div className="button-voltar">Voltar</div>
+                        <button onClick={"s"} className="button-voltar">
+                            <span class="material-symbols-rounded">
+                                arrow_back
+                            </span>
+                            Voltar
+                        </button>
                         <div className="container-details-info">
                             <div className="top-container">
                                 <div className="left-container">
@@ -39,9 +46,14 @@ export default function Details(){
                                     <div className="info-title">
                                         <h1>{details.title}</h1>
                                         <div>
-                                            <span>{details.release_date}</span>
+                                            <span>{date.getFullYear()}</span>
+                                            &bull;
                                             <span>{details.runtime + " Minutos"}</span>
                                         </div>
+                                    </div>
+                                    <div className="streaming-container">
+                                        <span>Disponivel em</span>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -54,4 +66,27 @@ export default function Details(){
             </main>
         </Fragment>
     )
+}
+
+function WatchProviders(){
+    const {id} = useParams()
+    const [watchProviders, setWatchProviders] = useState([]);
+
+    useEffect(() => {
+        apiFunctions.movie.getWatchProviders(id)
+            .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
+            .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
+    },[]);
+
+    console.log(watchProviders);
+    watchProviders.flatrate.map((item, index) => {
+        return(
+            <div>
+                <img src={apiFunctions.API_IMAGE_URL + item.logo_path}/>
+            </div>
+        )
+
+    })
 }

@@ -21,7 +21,7 @@
 
 .container-details-banner{
     height: 450px;
-    width: 100%;
+    width: 83%;
     position: absolute;
     z-index: 2;
     display: flex;
@@ -32,6 +32,22 @@
     padding-left: 1.9rem;
     position: absolute;
     top:0;
+
+    background-color: transparent;
+    border: 0;
+    color: var(--color12);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.container-details-banner .button-voltar span{
+    color: var(--color10);
 }
 
 .container-details-info{
@@ -59,16 +75,30 @@
 }
 
 .container-details-info .right-container{
-
+    margin-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .info-title{
-    padding-left: 1.2rem;
     display: flex;
     flex-direction: column;
 }
 .info-title h1{
+    color: var(--color12);
     max-width: 30vw;
+}
+.info-title div{
+    color: var(--color8);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    gap: 0.2rem;
+}
+
+.streaming-container{
+    
 }
 
 .container-details-info .bottom-container{

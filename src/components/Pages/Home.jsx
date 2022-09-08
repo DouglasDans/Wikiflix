@@ -11,22 +11,22 @@ export default function Home(){
     const [moviesEmBreve, setMoviesEmBreve] = useState([])
 
     useEffect(() => {
-        apiFunctions.apiMovieFunctions.getTendenciaSemana
+        apiFunctions.movie.getTendenciaSemana
             .then((response) => {setMoviesTendenciaSemana(response.data.results)})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.apiMovieFunctions.getFilmesNosCinemas
+        apiFunctions.movie.getFilmesNosCinemas
             .then((response) => {setMoviesNosCinemas(response.data.results)})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.apiMovieFunctions.getFilmesMelhoresAvaliados
+        apiFunctions.movie.getFilmesMelhoresAvaliados
             .then((response) => {setMoviesMelhoresAvaliados(response.data.results)})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.apiMovieFunctions.getFilmesEmBreve
+        apiFunctions.movie.getFilmesEmBreve
             .then((response) => {setMoviesEmBreve(response.data.results)})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
