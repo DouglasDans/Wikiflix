@@ -58,7 +58,19 @@ export default function Details(){
                                 </div>
                             </div>
                             <div className="bottom-container">
-                                aa
+                                <div className="action-buttons-container">
+                                    
+                                </div>
+                                <div className="infos-icon-container">
+                                    <div className="info-icon">
+                                        <div>{details.vote_average}<span class="material-symbols-rounded">star</span></div>
+                                        <small>{details.vote_count} avaliações</small>
+                                    </div>
+                                    <div className="info-icon">
+                                        <div>12</div>
+                                        <small>Classificação</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
