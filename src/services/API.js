@@ -7,6 +7,7 @@ const API_IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
 const API_PARAMS = {
     'api_key': API_KEY,
     'language': API_LANGUAGE,
+    'adult': false,
     'region': 'BR'
 }
 
@@ -19,10 +20,7 @@ const apiFunctions = {
     API_IMAGE_URL: API_IMAGE_URL,
     getDetails: (id) => {
         return api.get(`/movie/${id}`, { 
-            params: { 
-                'api_key': API_KEY,
-                'language': API_LANGUAGE
-            } 
+            params: API_PARAMS
         })
     },
     movie: {
@@ -32,37 +30,19 @@ const apiFunctions = {
             })
         },
         getTendenciaSemana: api.get("/trending/movie/week", { 
-            params: { 
-                'api_key': API_KEY,
-                'language': API_LANGUAGE
-            } 
+            params: API_PARAMS 
         }),
         getPopularMovies: api.get("/discover/movie", { 
-            params: { 
-                'api_key': API_KEY,
-                'language': API_LANGUAGE
-            } 
+            params: API_PARAMS 
         }),
         getFilmesEmBreve: api.get("/movie/upcoming", { 
-            params: { 
-                api_key: API_KEY,
-                language: API_LANGUAGE,
-                region: 'BR'
-            } 
+            params: API_PARAMS
         }),
         getFilmesMelhoresAvaliados: api.get("/movie/top_rated", { 
-            params: { 
-                api_key: API_KEY,
-                language: API_LANGUAGE,
-                
-            } 
+            params: API_PARAMS
         }),
         getFilmesNosCinemas: api.get("/movie/now_playing", { 
-            params: { 
-                api_key: API_KEY,
-                language: API_LANGUAGE,
-                region: 'BR'
-            } 
+            params: API_PARAMS
         }),
     },
     tv: {

@@ -10,6 +10,11 @@ export default function Details(){
     const {id} = useParams()
     const [details, setDetails] = useState([]);
 
+    const aaa = React.createClass({
+        getInitialState: 
+    })
+
+
     useEffect(() => {
         apiFunctions.getDetails(id)
             .then((response) => {setDetails(response.data);console.log(response.data);})
@@ -53,7 +58,7 @@ export default function Details(){
                                     </div>
                                     <div className="streaming-container">
                                         <span>Disponivel em</span>
-                                        
+                                        {/* <WatchProviders/> */}
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +80,19 @@ export default function Details(){
                         </div>
                     </div>
                 </div>
+                <div className="details-container">
+                    <div className="left-details-container">
+                        <h2>{details.tagline}</h2>
+                        <p>{details.overview}</p>
+                        <div className="generos-container">
+                            
+                        </div>
+                    </div>
+                    <div className="right-details-container">
+
+                    </div>
+
+                </div>
             </main>
         </Fragment>
     )
@@ -84,13 +102,11 @@ function WatchProviders(){
     const {id} = useParams()
     const [watchProviders, setWatchProviders] = useState([]);
 
-    useEffect(() => {
-        apiFunctions.movie.getWatchProviders(id)
-            .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
-            .catch((err) => {
-            console.error("ops! ocorreu um erro" + err);
-        });
-    },[]);
+    apiFunctions.movie.getWatchProviders(id)
+        .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
+        .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+    });
 
     console.log(watchProviders);
     watchProviders.flatrate.map((item, index) => {
