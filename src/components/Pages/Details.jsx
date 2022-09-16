@@ -10,10 +10,6 @@ export default function Details(){
     const {id} = useParams()
     const [details, setDetails] = useState([]);
 
-    const aaa = React.createClass({
-        getInitialState: 
-    })
-
 
     useEffect(() => {
         apiFunctions.getDetails(id)
