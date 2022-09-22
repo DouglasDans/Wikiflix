@@ -24,7 +24,7 @@ const apiFunctions = {
         })
     },
     movie: {
-        getWatchProviders: (id) => {
+        getWatchProviders: async function(id) {
             return api.get(`/movie/${id}/watch/providers`, { 
                 params: API_PARAMS
             })
