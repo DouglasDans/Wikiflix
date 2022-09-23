@@ -98,7 +98,22 @@
 }
 
 .streaming-container{
-    
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color8);
+}
+
+.streaming-container .streaming-icons-container{
+    display: flex;
+    column-gap: 10px;
+}
+.streaming-container .streaming-icons-container img{
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
 }
 
 .container-details-info .bottom-container .infos-icon-container{

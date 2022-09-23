@@ -9,9 +9,14 @@ export default function Details(){
 
     const {id} = useParams()
     const [details, setDetails] = useState([]);
-
+    const [watchProviders, setWatchProviders] = useState([]);
 
     useEffect(() => {
+        apiFunctions.movie.getWatchProviders(id)
+            .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
+            .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
         apiFunctions.getDetails(id)
             .then((response) => {setDetails(response.data);console.log(response.data);})
             .catch((err) => {
@@ -32,8 +37,8 @@ export default function Details(){
                     </div>
                     <div className="gradient-banner"></div>
                     <div className="container-details-banner">
-                        <button onClick={"s"} className="button-voltar">
-                            <span class="material-symbols-rounded">
+                        <button  className="button-voltar">
+                            <span className="material-symbols-rounded">
                                 arrow_back
                             </span>
                             Voltar
@@ -54,7 +59,9 @@ export default function Details(){
                                     </div>
                                     <div className="streaming-container">
                                         <span>Disponivel em</span>
-                                        {/* <WatchProviders/> */}
+                                        <div className="streaming-icons-container">
+                                            <WatchProviders data={watchProviders}/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +71,7 @@ export default function Details(){
                                 </div>
                                 <div className="infos-icon-container">
                                     <div className="info-icon">
-                                        <div>{details.vote_average}<span class="material-symbols-rounded">star</span></div>
+                                        <div>{details.vote_average}<span className="material-symbols-rounded">star</span></div>
                                         <small>{details.vote_count} avaliações</small>
                                     </div>
                                     <div className="info-icon">
@@ -94,23 +101,19 @@ export default function Details(){
     )
 }
 
-function WatchProviders(){
-    const {id} = useParams()
-    const [watchProviders, setWatchProviders] = useState([]);
-
-    apiFunctions.movie.getWatchProviders(id)
-        .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
-        .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-    });
-
-    console.log(watchProviders);
-    watchProviders.flatrate.map((item, index) => {
+function WatchProviders(props){
+    let watchProviders = props.data
+    if (watchProviders.length === 0) {
         return(
-            <div>
-                <img src={apiFunctions.API_IMAGE_URL + item.logo_path}/>
-            </div>
+            <small>Indiponível</small>
+            )
+    } else {
+        return (
+            watchProviders.flatrate.map((item) => {
+                return(
+                    <img  src={apiFunctions.API_IMAGE_URL + item.logo_path}/>
+                )
+            })
         )
-
-    })
+    }    
 }
