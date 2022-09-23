@@ -10,12 +10,12 @@ export default function Details(){
     const {id} = useParams()
     const [details, setDetails] = useState([]);
     const [watchProviders, setWatchProviders] = useState([]);
+    let genres = [{name: "Indisponível"}]
 
     useEffect(() => {
         apiFunctions.movie.getWatchProviders(id)
             .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
-            .catch((err) => {
-            console.error("ops! ocorreu um erro" + err);
+            .catch((err) => {console.error("ops! ocorreu um erro" + err);
         });
         apiFunctions.getDetails(id)
             .then((response) => {setDetails(response.data);console.log(response.data);})
@@ -24,8 +24,13 @@ export default function Details(){
         });
     },[]);
 
-    const date = new Date(details.release_date)
+    if (details.genres === undefined) {
+        console.log("aa");
+    } else {
+        genres = details.genres
+    }
 
+    const date = new Date(details.release_date)
     return(
         <Fragment>
             <Navbar />
@@ -53,14 +58,16 @@ export default function Details(){
                                         <h1>{details.title}</h1>
                                         <div>
                                             <span>{date.getFullYear()}</span>
-                                            &bull;
+                                            &bull; 
                                             <span>{details.runtime + " Minutos"}</span>
+                                            &bull; 
+                                            <span>{genres[0].name}</span>
                                         </div>
                                     </div>
                                     <div className="streaming-container">
                                         <span>Disponivel em</span>
                                         <div className="streaming-icons-container">
-                                            <WatchProviders data={watchProviders}/>
+                                            <WatchProviders data={watchProviders} details={details}/>
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +95,7 @@ export default function Details(){
                         <h2>{details.tagline}</h2>
                         <p>{details.overview}</p>
                         <div className="generos-container">
-                            
+                            <ListGenres data={details.genres}/>
                         </div>
                     </div>
                     <div className="right-details-container">
@@ -103,10 +110,10 @@ export default function Details(){
 
 function WatchProviders(props){
     let watchProviders = props.data
-    if (watchProviders.length === 0) {
+    if (watchProviders === undefined || watchProviders.length === 0) {
         return(
             <small>Indiponível</small>
-            )
+        )
     } else {
         return (
             watchProviders.flatrate.map((item) => {
@@ -116,4 +123,21 @@ function WatchProviders(props){
             })
         )
     }    
+}
+
+function ListGenres(props){
+    let genres = props.data
+    if (genres === undefined) {
+        return(
+            <Fragment></Fragment>
+        )
+    } else {
+        return (
+            genres.map((item) => {
+                return(
+                    <span>{item.name}</span>
+                )
+            })
+        )
+    } 
 }

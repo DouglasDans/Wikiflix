@@ -158,6 +158,19 @@
 .left-details-container p{
     font-size: 0.9rem;
 }
+.left-details-container .generos-container{
+    display: flex;
+    gap: 10px;
+}
+
+.left-details-container .generos-container span{
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color8);
+    padding: 7px;
+    border: var(--color8) solid 1px;
+    border-radius: 50px;
+}
 
 .right-details-container{
     background-color: var(--color3);
