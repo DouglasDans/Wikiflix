@@ -4,7 +4,7 @@ import "./SearchContainer.css"
 export default class SearchContainer extends React.Component{
     render(){
         return(
-            <div className="search-container">
+            <header className="search-container">
                 <div>
                     <span className="material-symbols-rounded search-icon">
 						search
@@ -15,7 +15,7 @@ export default class SearchContainer extends React.Component{
                 <div className="user-container">
                     <section className="userImage"></section>
                 </div>
-            </div>
+            </header>
         )
     }
 }
