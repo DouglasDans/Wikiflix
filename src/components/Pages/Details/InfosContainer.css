@@ -31,4 +31,21 @@
 .right-details-container{
     background-color: var(--color3);
     border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.info-line{
+    display: flex;
+    font-size: 0.9rem;
+    gap: 0.3rem;
+}
+.info-line p{
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+.info-line .titulo{
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+    font-weight: 600;
 }

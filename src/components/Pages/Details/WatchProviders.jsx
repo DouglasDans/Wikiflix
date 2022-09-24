@@ -7,12 +7,18 @@ export default function WatchProviders(props){
             <small>Indiponível</small>
         )
     } else {
-        return (
-            watchProviders.flatrate.map((item) => {
-                return(
-                    <img  src={apiFunctions.API_IMAGE_URL + item.logo_path}/>
-                )
-            })
-        )
+        if (watchProviders.flatrate === undefined) {
+            return(<small>Disponível para comprar e/ou alugar</small>)
+        } else {
+            return (
+                watchProviders.flatrate.map((item) => {
+                    if (item.display_priority < 30) {
+                        return(
+                            <img  src={apiFunctions.API_IMAGE_URL + item.logo_path}/>
+                        )
+                    }
+                })
+            )
+        }
     }    
 }
