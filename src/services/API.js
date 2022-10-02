@@ -29,6 +29,11 @@ const apiFunctions = {
                 params: API_PARAMS
             })
         },
+        getRecommendations: function(id){
+            return api.get(`/movie/${id}/recommendations`, { 
+                params: API_PARAMS
+            })
+        },
         getTendenciaSemana: api.get("/trending/movie/week", { 
             params: API_PARAMS 
         }),

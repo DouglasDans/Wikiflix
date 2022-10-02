@@ -23,9 +23,7 @@ export default function InfosContainer(props){
                 <div className="info-line">
                     <p className="titulo">Lançamento: </p><p> {`${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`}</p>
                 </div>
-                <div className="info-line">
-                    <p className="titulo">Lançamento: </p><p> {`${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`}</p>
-                </div>
+                1
                 <div className="info-line">
                     {/* <p className="titulo">País de Origem: </p><p>{details.production_countries[0].name}</p> */}
                 </div>
