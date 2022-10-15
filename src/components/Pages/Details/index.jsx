@@ -49,10 +49,24 @@ export default function Details(){
                     })
                 } */}
 
-                {/* <Carousel itens={} title={'Recomendações para ' + details.title} coverType={'large'}/> */}
+{console.log("Teste")}
+
+                {
+                    <Teste recommendations={recommendations} />
+                }
             </main>
         </Fragment>
     )
 }
 
+function Teste(props){
+    try {
+        return(
+            <Carousel itens={props.recommendations.data.results} title={'Recomendações para'} coverType={'small'}/>
+
+        )
+    } catch (e){
+        console.error(e)
+    }
+}
 
