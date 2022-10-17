@@ -2,7 +2,7 @@ import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './Carousel.css'
-import { Link } from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 
 
 export default function Carousel(props) {

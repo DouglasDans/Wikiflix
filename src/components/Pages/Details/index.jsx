@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react"; 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar";
 import SearchContainer from "../../SearchContainer";
 import apiFunctions from "../../../services/API";
@@ -8,6 +8,8 @@ import InfosContainer from "./InfosContainer";
 import Carousel from "../../Carousel";
 
 export default function Details(){
+    
+    window.scrollTo(0, 0);
 
     const {id} = useParams()
     const [details, setDetails] = useState([]);
@@ -42,15 +44,6 @@ export default function Details(){
                 <SearchContainer />
                 <Banner details={details} watchProviders={watchProviders} genres={genres} />
                 <InfosContainer details={details}/>
-
-                {/* {
-                    recommendations.data.results.map((item), function() {
-
-                    })
-                } */}
-
-{console.log("Teste")}
-
                 {
                     <Teste recommendations={recommendations} />
                 }
@@ -63,10 +56,9 @@ function Teste(props){
     try {
         return(
             <Carousel itens={props.recommendations.data.results} title={'Recomendações para'} coverType={'small'}/>
-
         )
     } catch (e){
-        console.error(e)
+        console.warn(e)
     }
 }
 
