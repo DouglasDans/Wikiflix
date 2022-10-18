@@ -24,6 +24,11 @@ const apiFunctions = {
         })
     },
     movie: {
+        getSearchList: function(query){
+            return api.get(`search/movie?query=${query}`, { 
+                params: API_PARAMS
+            })
+        },
         getWatchProviders: function(id) {
             return api.get(`/movie/${id}/watch/providers`, { 
                 params: API_PARAMS

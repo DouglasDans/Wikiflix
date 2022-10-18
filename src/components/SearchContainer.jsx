@@ -1,16 +1,12 @@
-import {React, useState} from "react";
+import {React} from "react";
 import "./SearchContainer.css"
 import { useNavigate } from "react-router-dom";
 
 export default function SearchContainer(){
-    const [dataInput, setDataInput] = useState([]);
-    
     let navigate = useNavigate()
 
     function handleSubmit(e){
         e.preventDefault()
-
-        console.log("sf");
         return navigate("/search/" + e.target[0].value)
     }
 
@@ -28,10 +24,3 @@ export default function SearchContainer(){
             </header>
         )
     }
-
-function Redirect(props){
-    let navigate = useNavigate()
-    console.log("sf");
-    return navigate("/search")
-
-}

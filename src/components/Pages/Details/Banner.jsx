@@ -2,6 +2,7 @@ import apiFunctions from "../../../services/API";
 import WatchProviders from "./WatchProviders";
 
 import './Banner.css'
+import { useNavigate } from "react-router-dom";
 
 
 export default function Banner(props){
@@ -9,6 +10,12 @@ export default function Banner(props){
     const watchProviders = props.watchProviders
     const genres = props.genres
     const date = new Date(details.release_date)
+    const navigate = useNavigate()
+
+    function voltarPag(){
+        navigate(-1)
+    }
+
     return(
         <div className="container-banner">
             <div className="bg-img-banner">
@@ -16,7 +23,7 @@ export default function Banner(props){
             </div>
             <div className="gradient-banner"></div>
             <div className="container-details-banner">
-                <button  className="button-voltar">
+                <button onClick={voltarPag} className="button-voltar">
                     <span className="material-symbols-rounded">
                         arrow_back
                     </span>
