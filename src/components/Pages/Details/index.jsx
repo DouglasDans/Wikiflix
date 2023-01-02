@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react"; 
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import Navbar from "../../Navbar";
 import SearchContainer from "../../SearchContainer";
 import apiFunctions from "../../../services/API";
@@ -8,15 +8,18 @@ import InfosContainer from "./InfosContainer";
 import Carousel from "../../Carousel";
 
 export default function Details(){
+
     
     window.scrollTo(0, 0);
-
+    
     const {id} = useParams()
+    console.log(useLocation());
+    console.log(id);
     const [details, setDetails] = useState([]);
     const [watchProviders, setWatchProviders] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
     let genres = [{name: "Indisponível"}]
-
+    
     useEffect(() => {
         apiFunctions.movie.getWatchProviders(id)
             .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
@@ -31,7 +34,7 @@ export default function Details(){
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-    },[]);
+    },[id]);
 
     if (details.genres !== undefined) {
         genres = details.genres

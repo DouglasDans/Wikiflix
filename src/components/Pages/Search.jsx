@@ -18,7 +18,7 @@ export default function Search(){
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-    }, []);
+    }, [query]);
 
     return(
         <Fragment>

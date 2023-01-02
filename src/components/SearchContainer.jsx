@@ -8,6 +8,7 @@ export default function SearchContainer(){
     function handleSubmit(e){
         e.preventDefault()
         return navigate("/search/" + e.target[0].value)
+        window.navigation.reload()
     }
 
     return(
