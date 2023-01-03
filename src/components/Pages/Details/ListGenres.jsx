@@ -2,11 +2,7 @@ import { Fragment } from "react"
 
 export default function ListGenres(props){
     let genres = props.data
-    if (genres === undefined) {
-        return(
-            <Fragment></Fragment>
-        )
-    } else {
+    try {
         return (
             genres.map((item) => {
                 return(
@@ -14,5 +10,9 @@ export default function ListGenres(props){
                 )
             })
         )
-    } 
+    } catch (error) {
+        return(
+            <Fragment></Fragment>
+        )
+    }
 }

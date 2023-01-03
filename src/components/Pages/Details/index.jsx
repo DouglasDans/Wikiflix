@@ -8,17 +8,12 @@ import InfosContainer from "./InfosContainer";
 import Carousel from "../../Carousel";
 
 export default function Details(){
-
-    
     window.scrollTo(0, 0);
     
     const {id} = useParams()
-    console.log(useLocation());
-    console.log(id);
     const [details, setDetails] = useState([]);
     const [watchProviders, setWatchProviders] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
-    let genres = [{name: "Indisponível"}]
     
     useEffect(() => {
         apiFunctions.movie.getWatchProviders(id)
@@ -35,30 +30,24 @@ export default function Details(){
             console.error("ops! ocorreu um erro" + err);
         });
     },[id]);
-
-    if (details.genres !== undefined) {
-        genres = details.genres
-    }
     
     return(
         <Fragment>
             <Navbar />
             <main className="container-main">
                 <SearchContainer />
-                <Banner details={details} watchProviders={watchProviders} genres={genres} />
+                <Banner details={details} watchProviders={watchProviders} />
                 <InfosContainer details={details}/>
-                {
-                    <Teste recommendations={recommendations} />
-                }
+                <Recommendations recommendations={recommendations} details={details}/>
             </main>
         </Fragment>
     )
 }
 
-function Teste(props){
+function Recommendations(props){
     try {
         return(
-            <Carousel itens={props.recommendations.data.results} title={'Recomendações para'} coverType={'small'}/>
+            <Carousel itens={props.recommendations.data.results} title={'Recomendações para ' + props.details.title} coverType={'small'}/>
         )
     } catch (e){
         console.warn(e)

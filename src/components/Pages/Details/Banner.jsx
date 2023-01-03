@@ -1,17 +1,15 @@
 import apiFunctions from "../../../services/API";
 import WatchProviders from "./WatchProviders";
-
 import './Banner.css'
 import { useNavigate } from "react-router-dom";
 
-
 export default function Banner(props){
+    const navigate = useNavigate()
     const details = props.details
     const watchProviders = props.watchProviders
-    const genres = props.genres
     const date = new Date(details.release_date)
-    const navigate = useNavigate()
-
+    const genres = details.genres || [{name: "Indisponível"}]
+    
     function voltarPag(){
         navigate(-1)
     }
@@ -45,12 +43,9 @@ export default function Banner(props){
                                     <span>{genres[0].name}</span>
                                 </div>
                             </div>
-                            <div className="streaming-container">
-                                <span>Disponivel em</span>
-                                <div className="streaming-icons-container">
-                                    <WatchProviders data={watchProviders} details={details}/>
-                                </div>
-                            </div>
+                                    
+                            <WatchProviders data={watchProviders} details={details}/>
+
                         </div>
                     </div>
                     <div className="bottom-container">

@@ -5,7 +5,7 @@ import Home from "./components/Pages/Home";
 import Filmes from "./components/Pages/Filmes";
 import Series from "./components/Pages/Series";
 import Watchlist from "./components/Pages/Watchlist";
-import Details from "./components/Pages/Details";
+import Details from "./components/Pages/Details/";
 import Search from "./components/Pages/Search";
 
 function App() {
