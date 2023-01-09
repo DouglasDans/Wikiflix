@@ -15,7 +15,8 @@ function App() {
       <Route exact path="/filmes" element={<Filmes/>} />
       <Route exact path="/series" element={<Series/>} />
       <Route exact path="/watchlist" element={<Watchlist/>} />
-      <Route exact path="/details/:id" element={<Details/>} />
+      <Route exact path="/movie/:id" element={<Details/>} />
+      <Route exact path="/tv/:id" element={<Details/>} />
       <Route exact path="/search/:query" element={<Search/>} />
     </Routes>
   );

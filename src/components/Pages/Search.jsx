@@ -13,7 +13,7 @@ export default function Search(){
     const [querySearchMovies, setQuerySearchMovies] = useState([])
     useEffect(() => {
         console.log("dfdf");
-        apiFunctions.movie.getSearchList(query)
+        apiFunctions.getSearchList(query)
             .then((response) => {setQuerySearchMovies(response.data.results); console.log(response);})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);

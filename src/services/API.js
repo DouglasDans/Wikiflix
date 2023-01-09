@@ -18,31 +18,83 @@ const api = axios.create({
 
 const apiFunctions = {
     API_IMAGE_URL: API_IMAGE_URL,
-    getDetails: (id) => {
-        return api.get(`/movie/${id}`, { 
+    getSearchList: async function(query){
+        return await api.get(`search/movie?query=${query}`, { 
             params: API_PARAMS
         })
     },
+    
     movie: {
-        getSearchList: function(query){
-            return api.get(`search/movie?query=${query}`, { 
+        getDetails: async function(id){
+            return await api.get(`/movie/${id}`, { 
                 params: API_PARAMS
             })
         },
-        getWatchProviders: function(id) {
-            return api.get(`/movie/${id}/watch/providers`, { 
+        getAccountTitles: async function(id){
+            return await api.get(`/movie/${id}/alternative_titles`, { 
                 params: API_PARAMS
             })
         },
-        getRecommendations: function(id){
-            return api.get(`/movie/${id}/recommendations`, { 
+        getExternalIds: async function(id){
+            return await api.get(`/movie/${id}/external_ids`, { 
+                params: API_PARAMS
+            })
+        },
+        getImages: async function(id){
+            return await api.get(`/movie/${id}/images`, { 
+                params: API_PARAMS
+            })
+        },
+        getList: async function(id){
+            return await api.get(`/movie/${id}/list`, { 
+                params: API_PARAMS
+            })
+        },
+        getRecommendations: async function(id){
+            return await api.get(`/movie/${id}/recommendations`, { 
+                params: API_PARAMS
+            })
+        },
+        getReleaseDates: async function(id){
+            return await api.get(`/movie/${id}/release_dates`, { 
+                params: API_PARAMS
+            })
+        },
+        getReviews: async function(id){
+            return await api.get(`/movie/${id}/reviews`, { 
+                params: API_PARAMS
+            })
+        },
+        getSimilar: async function(id){
+            return await api.get(`/movie/${id}/similar`, { 
+                params: API_PARAMS
+            })
+        },
+        getTranslations: async function(id){
+            return await api.get(`/movie/${id}/translations`, { 
+                params: API_PARAMS
+            })
+        },
+        getVideos: async function(id){
+            return await api.get(`/movie/${id}/videos`, { 
+                params: API_PARAMS
+            })
+        },
+
+        getWatchProviders: async function(id) {
+            return await api.get(`/movie/${id}/watch/providers`, { 
+                params: API_PARAMS
+            })
+        },
+        getLatest: async function() {
+            return await api.get(`/movie/latest`, { 
                 params: API_PARAMS
             })
         },
         getTendenciaSemana: api.get("/trending/movie/week", { 
             params: API_PARAMS 
         }),
-        getPopularMovies: api.get("/discover/movie", { 
+        getPopularMovies: api.get("/movie/popular", { 
             params: API_PARAMS 
         }),
         getFilmesEmBreve: api.get("/movie/upcoming", { 
@@ -55,6 +107,7 @@ const apiFunctions = {
             params: API_PARAMS
         }),
     },
+
     tv: {
 
     }

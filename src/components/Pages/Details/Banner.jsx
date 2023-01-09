@@ -9,6 +9,10 @@ export default function Banner(props){
     const watchProviders = props.watchProviders
     const date = new Date(details.release_date)
     const genres = details.genres || [{name: "Indisponível"}]
+
+    let  {backdrop_path, poster_path, runtime, vote_average, vote_count} = details || "Indisponível"
+
+    console.log(details)
     
     function voltarPag(){
         navigate(-1)
@@ -17,7 +21,7 @@ export default function Banner(props){
     return(
         <div className="container-banner">
             <div className="bg-img-banner">
-                <img src={apiFunctions.API_IMAGE_URL + details.backdrop_path} />
+                <img src={apiFunctions.API_IMAGE_URL + backdrop_path} />
             </div>
             <div className="gradient-banner"></div>
             <div className="container-details-banner">
@@ -30,7 +34,7 @@ export default function Banner(props){
                 <div className="container-details-info">
                     <div className="top-container">
                         <div className="left-container">
-                            <img src={apiFunctions.API_IMAGE_URL + details.poster_path}/>
+                            <img src={apiFunctions.API_IMAGE_URL + poster_path}/>
                         </div>
                         <div className="right-container">
                             <div className="info-title">
@@ -38,7 +42,7 @@ export default function Banner(props){
                                 <div>
                                     <span>{date.getFullYear()}</span>
                                     &bull; 
-                                    <span>{details.runtime + " Minutos"}</span>
+                                    <span>{runtime + " Minutos"}</span>
                                     &bull; 
                                     <span>{genres[0].name}</span>
                                 </div>
@@ -54,8 +58,8 @@ export default function Banner(props){
                         </div>
                         <div className="infos-icon-container">
                             <div className="info-icon">
-                                <div>{details.vote_average}<span className="material-symbols-rounded">star</span></div>
-                                <small>{details.vote_count} avaliações</small>
+                                <div>{vote_average}<span className="material-symbols-rounded">star</span></div>
+                                <small>{vote_count} avaliações</small>
                             </div>
                             <div className="info-icon">
                                 <div>12</div>
@@ -64,6 +68,7 @@ export default function Banner(props){
                         </div>
                     </div>
                 </div>
+                <button >s</button>
             </div>
         </div>
     )

@@ -1,6 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+
 
 export default class Series extends React.Component{
     render(){
@@ -14,3 +17,5 @@ export default class Series extends React.Component{
         )
     }
 }
+
+

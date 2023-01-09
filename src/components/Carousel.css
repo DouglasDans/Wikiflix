@@ -2,9 +2,12 @@
 .carousel-container{
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    justify-content: space-between;
     user-select: none;
+    /* background-color: aliceblue; */
 }
+
+
 
 .carousel-title{
     padding-left: 55px;
@@ -85,4 +88,5 @@
     height: 165px;
     width: 110px;
     border-radius: 10px;
+    background-color: aqua;
 }

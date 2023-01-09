@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react"; 
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Navbar";
 import SearchContainer from "../../SearchContainer";
 import apiFunctions from "../../../services/API";
@@ -10,12 +10,28 @@ import Carousel from "../../Carousel";
 export default function Details(){
     window.scrollTo(0, 0);
     
-    const {id} = useParams()
+    const {id} = useParams() 
     const [details, setDetails] = useState([]);
     const [watchProviders, setWatchProviders] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
+    const [videos, setVideos] = useState([]);
+    const [similar, setSimilar] = useState([]);
     
     useEffect(() => {
+        console.log(apiFunctions);
+        apiFunctions.movie.getDetails(id)
+            .then((response) => {setDetails(response.data);console.log(response.data);})
+            .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
+        apiFunctions.movie.getVideos(id)
+            .then((response) => {setVideos(response.data.results.BR);console.log(response.data.results.BR);})
+            .catch((err) => {console.error("ops! ocorreu um erro" + err);
+        });
+        apiFunctions.movie.getSimilar(id)
+            .then((response) => {setSimilar(response.data.results.BR);console.log(response.data.results.BR);})
+            .catch((err) => {console.error("ops! ocorreu um erro" + err);
+        });
         apiFunctions.movie.getWatchProviders(id)
             .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
             .catch((err) => {console.error("ops! ocorreu um erro" + err);
@@ -24,11 +40,6 @@ export default function Details(){
             .then((response) => {setRecommendations(response);console.log(response);})
             .catch((err) => {console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.getDetails(id)
-            .then((response) => {setDetails(response.data);console.log(response.data);})
-            .catch((err) => {
-            console.error("ops! ocorreu um erro" + err);
-        });
     },[id]);
     
     return(
@@ -36,13 +47,16 @@ export default function Details(){
             <Navbar />
             <main className="container-main">
                 <SearchContainer />
-                <Banner details={details} watchProviders={watchProviders} />
-                <InfosContainer details={details}/>
+                <Banner details={details} watchProviders={watchProviders} linkVideo={videos}/>
+                <InfosContainer details={details} />
                 <Recommendations recommendations={recommendations} details={details}/>
+                <Recommendations recommendations={similar} details={details}/>
             </main>
         </Fragment>
     )
 }
+
+
 
 function Recommendations(props){
     try {
@@ -50,7 +64,9 @@ function Recommendations(props){
             <Carousel itens={props.recommendations.data.results} title={'Recomendações para ' + props.details.title} coverType={'small'}/>
         )
     } catch (e){
-        console.warn(e)
+        return(
+            <Fragment></Fragment>
+        )
     }
 }
 
