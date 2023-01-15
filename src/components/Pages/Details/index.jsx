@@ -9,6 +9,16 @@ import Carousel from "../../Carousel";
 
 export default function Details(){
     window.scrollTo(0, 0);
+
+    let typeContent = 0
+
+    if(window.location.pathname.includes("/movie")){
+        typeContent = apiFunctions.movie
+    } else if(window.location.pathname.includes("/tv")){
+        typeContent = apiFunctions.tv
+    }else {
+        alert("opaaaaa")
+    }
     
     const {id} = useParams() 
     const [details, setDetails] = useState([]);
@@ -19,27 +29,27 @@ export default function Details(){
     
     useEffect(() => {
         console.log(apiFunctions);
-        apiFunctions.movie.getDetails(id)
+        typeContent.getDetails(id)
             .then((response) => {setDetails(response.data);console.log(response.data);})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.movie.getVideos(id)
-            .then((response) => {setVideos(response.data.results.BR);console.log(response.data.results.BR);})
-            .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        });
-        apiFunctions.movie.getSimilar(id)
-            .then((response) => {setSimilar(response.data.results.BR);console.log(response.data.results.BR);})
-            .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        });
-        apiFunctions.movie.getWatchProviders(id)
+        // typeContent.getVideos(id)
+        //     .then((response) => {setVideos(response.data.results.BR);console.log(response.data.results.BR);})
+        //     .catch((err) => {console.error("ops! ocorreu um erro" + err);
+        // });
+        // typeContent.getSimilar(id)
+        //     .then((response) => {setSimilar(response.data.results.BR);console.log(response.data.results.BR);})
+        //     .catch((err) => {console.error("ops! ocorreu um erro" + err);
+        // });
+        typeContent.getWatchProviders(id)
             .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
             .catch((err) => {console.error("ops! ocorreu um erro" + err);
         });
-        apiFunctions.movie.getRecommendations(id)
-            .then((response) => {setRecommendations(response);console.log(response);})
-            .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        });
+        // typeContent.getRecommendations(id)
+        //     .then((response) => {setRecommendations(response);console.log(response);})
+        //     .catch((err) => {console.error("ops! ocorreu um erro" + err);
+        // });
     },[id]);
     
     return(

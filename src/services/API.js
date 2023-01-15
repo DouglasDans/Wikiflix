@@ -109,7 +109,16 @@ const apiFunctions = {
     },
 
     tv: {
-
+        getDetails: async function(id){
+            return await api.get(`/tv/${id}`, { 
+                params: API_PARAMS
+            })
+        },
+        getWatchProviders: async function(id) {
+            return await api.get(`/tv/${id}/watch/providers`, { 
+                params: API_PARAMS
+            })
+        },
     }
 }
 
