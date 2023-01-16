@@ -8,13 +8,17 @@ import apiFunctions from "../../services/API";
 export default function Search(){
     window.scrollTo(0, 0);
     const {query} = useParams()
-    console.log(query);
 
     const [querySearchMovies, setQuerySearchMovies] = useState([])
+    const [querySearchTv, setQuerySearchTv] = useState([])
     useEffect(() => {
-        console.log("dfdf");
-        apiFunctions.getSearchList(query)
+        apiFunctions.getSearchListMovie(query)
             .then((response) => {setQuerySearchMovies(response.data.results); console.log(response);})
+            .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
+        apiFunctions.getSearchListTv(query)
+            .then((response) => {setQuerySearchTv(response.data.results); console.log(response);})
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });
@@ -26,6 +30,7 @@ export default function Search(){
             <main className="container-main">
                 <SearchContainer/>
                 <Carousel itens={querySearchMovies} title={'Filmes Relacionados'} coverType={'small'}/>
+                <Carousel itens={querySearchTv} title={'Programas de TV Relacionados'} coverType={'small'}/>
 
             </main>
         </Fragment>

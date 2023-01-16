@@ -18,8 +18,13 @@ const api = axios.create({
 
 const apiFunctions = {
     API_IMAGE_URL: API_IMAGE_URL,
-    getSearchList: async function(query){
+    getSearchListMovie: async function(query){
         return await api.get(`search/movie?query=${query}`, { 
+            params: API_PARAMS
+        })
+    },
+    getSearchListTv: async function(query){
+        return await api.get(`search/tv?query=${query}`, { 
             params: API_PARAMS
         })
     },
