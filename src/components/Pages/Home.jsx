@@ -17,7 +17,7 @@ export default function Home(){
             console.error("ops! ocorreu um erro" + err);
         });
         apiFunctions.movie.getFilmesNosCinemas
-            .then((response) => {setMoviesNosCinemas(response.data.results)})
+            .then((response) => {setMoviesNosCinemas(response.data.results)}) 
             .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
         });

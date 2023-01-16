@@ -46,10 +46,10 @@ export default function Details(){
             .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
             .catch((err) => {console.error("ops! ocorreu um erro" + err);
         });
-        // typeContent.getRecommendations(id)
-        //     .then((response) => {setRecommendations(response);console.log(response);})
-        //     .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        // });
+        typeContent.getRecommendations(id)
+            .then((response) => {setRecommendations(response);console.log(response);})
+            .catch((err) => {console.error("ops! ocorreu um erro" + err);
+        });
     },[id]);
     
     return(

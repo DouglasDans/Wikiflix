@@ -25,6 +25,7 @@ const apiFunctions = {
     },
     
     movie: {
+        dataType: "movie",
         getDetails: async function(id){
             return await api.get(`/movie/${id}`, { 
                 params: API_PARAMS
@@ -109,13 +110,84 @@ const apiFunctions = {
     },
 
     tv: {
+        dataType: "tv",
         getDetails: async function(id){
             return await api.get(`/tv/${id}`, { 
                 params: API_PARAMS
             })
         },
+        getCredits: async function(id) {
+            return await api.get(`/tv/${id}/credits`, { 
+                params: API_PARAMS
+            })
+        },
+        getAlternativeTitles: async function(id) {
+            return await api.get(`/tv/${id}/alternative_titles`, { 
+                params: API_PARAMS
+            })
+        },
+        getContentRatings: async function(id) {
+            return await api.get(`/tv/${id}/content_ratings`, { 
+                params: API_PARAMS
+            })
+        },
+        getExternalIds: async function(id) {
+            return await api.get(`/tv/${id}/external_ids`, { 
+                params: API_PARAMS
+            })
+        },
+        getRecommendations: async function(id) {
+            return await api.get(`/tv/${id}/recommendations`, { 
+                params: API_PARAMS
+            })
+        },
+        getReviews: async function(id) {
+            return await api.get(`/tv/${id}/reviews`, { 
+                params: API_PARAMS
+            })
+        },
+        getSimilar: async function(id) {
+            return await api.get(`/tv/${id}/similar`, { 
+                params: API_PARAMS
+            })
+        },
+        getTranslations: async function(id){
+            return await api.get(`/tv/${id}/translations`, { 
+                params: API_PARAMS
+            })
+        },
+        getVideos: async function(id){
+            return await api.get(`/tv/${id}/videos`, { 
+                params: API_PARAMS
+            })
+        },
         getWatchProviders: async function(id) {
             return await api.get(`/tv/${id}/watch/providers`, { 
+                params: API_PARAMS
+            })
+        },
+        getLatest: async function() {
+            return await api.get(`/tv/latest`, { 
+                params: API_PARAMS
+            })
+        },
+        getOnAirToday: async function() {
+            return await api.get(`/tv/airing_today`, { 
+                params: API_PARAMS
+            })
+        },
+        getOnAir: async function() {
+            return await api.get(`/tv/on_the_air`, { 
+                params: API_PARAMS
+            })
+        },
+        getPopular: async function() {
+            return await api.get(`/tv/on_the_air`, { 
+                params: API_PARAMS
+            })
+        },
+        getTopRated: async function() {
+            return await api.get(`/tv/top_rated`, { 
                 params: API_PARAMS
             })
         },
