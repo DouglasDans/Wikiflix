@@ -29,8 +29,8 @@ export default function Search(){
             <Navbar/>
             <main className="container-main">
                 <SearchContainer/>
-                <Carousel itens={querySearchMovies} title={'Filmes Relacionados'} coverType={'small'}/>
-                <Carousel itens={querySearchTv} title={'Programas de TV Relacionados'} coverType={'small'}/>
+                <Carousel itens={querySearchMovies} dataType={"movie"} title={'Filmes Relacionados'} coverType={'small'}/>
+                <Carousel itens={querySearchTv} dataType={"tv"} title={'Programas de TV Relacionados'} coverType={'small'}/>
 
             </main>
         </Fragment>

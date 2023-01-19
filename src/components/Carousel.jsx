@@ -2,30 +2,31 @@ import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './Carousel.css'
-import { Link, useHistory} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default function Carousel(props) {
     if(props.coverType == 'large'){
         return(
-            <CarouselLarge itens={props.itens} title={props.title}/>
+            <CarouselLarge itens={props.itens} dataType={props.dataType} title={props.title}/>
         )
     }else{
         return(
-            <CarouselSmall itens={props.itens} title={props.title}/>
+            <CarouselSmall itens={props.itens} dataType={props.dataType} title={props.title}/>
         )
     }
 }
 
 function CarouselLarge(props){
+    const dataType = props.dataType
     const itens = props.itens.map((item, index) => {
         const style = { width: 400 };
         const date = new Date(item.release_date)
         return (
             <div className="item" style={style}>
-                <Link to={`/movie/${item.id}`} className='carousel-item-container'>
+                <Link to={`/${dataType}/${item.id}`} className='carousel-item-container'>
                     <div className='title-carousel-item'>
-                        <h1>{item.title}</h1>
+                        <h1>{item.title || item.name}</h1>
                         <span>{date.getFullYear()}</span>
                     </div>
                     <img className='carousel-img-large' src={'https://image.tmdb.org/t/p/w500/' + item.backdrop_path} />
@@ -71,11 +72,12 @@ function CarouselLarge(props){
     )
 }
 function CarouselSmall(props){
+    const dataType = props.dataType
     const itens = props.itens.map((item, index) => {
         const style = { width: 130 };
         return (
             <div className="item" style={style}>
-                <Link to={`/movie/${item.id}`}>
+                <Link to={`/${dataType}/${item.id}`}>
                     <img className='carousel-img-small' height="165px" width="110px" src={'https://image.tmdb.org/t/p/w500/' + item.poster_path} />
                 </Link>
             </div>

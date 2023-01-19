@@ -38,10 +38,10 @@ export default function Details(){
         //     .then((response) => {setVideos(response.data.results.BR);console.log(response.data.results.BR);})
         //     .catch((err) => {console.error("ops! ocorreu um erro" + err);
         // });
-        // typeContent.getSimilar(id)
-        //     .then((response) => {setSimilar(response.data.results.BR);console.log(response.data.results.BR);})
-        //     .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        // });
+        typeContent.getSimilar(id)
+            .then((response) => {setSimilar(response.data.results.BR);console.log(response.data.results.BR);})
+            .catch((err) => {console.error("ops! ocorreu um erro" + err);
+        });
         typeContent.getWatchProviders(id)
             .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
             .catch((err) => {console.error("ops! ocorreu um erro" + err);
@@ -59,8 +59,8 @@ export default function Details(){
                 <SearchContainer />
                 <Banner details={details} watchProviders={watchProviders} linkVideo={videos}/>
                 <InfosContainer details={details} />
-                <Recommendations recommendations={recommendations} details={details}/>
-                <Recommendations recommendations={similar} details={details}/>
+                <Recommendations recommendations={recommendations} dataType={typeContent.dataType} details={details}/>
+                <Recommendations recommendations={similar} dataType={typeContent.dataType} details={details}/>
             </main>
         </Fragment>
     )
@@ -71,7 +71,7 @@ export default function Details(){
 function Recommendations(props){
     try {
         return(
-            <Carousel itens={props.recommendations.data.results} title={'Recomendações para ' + props.details.title} coverType={'small'}/>
+            <Carousel itens={props.recommendations.data.results} dataType={props.dataType} title={'Recomendações para ' + props.details.title} coverType={'small'}/>
         )
     } catch (e){
         return(

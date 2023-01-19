@@ -28,6 +28,12 @@ const apiFunctions = {
             params: API_PARAMS
         })
     },
+
+    getTendenciaSemana: async function(){
+        return await api.get(`/trending/all/week`, { 
+            params: API_PARAMS
+        })
+    },
     
     movie: {
         dataType: "movie",
@@ -171,6 +177,9 @@ const apiFunctions = {
                 params: API_PARAMS
             })
         },
+        getTendenciaSemana: api.get("/trending/tv/week", { 
+            params: API_PARAMS 
+        }),
         getLatest: async function() {
             return await api.get(`/tv/latest`, { 
                 params: API_PARAMS
@@ -187,7 +196,7 @@ const apiFunctions = {
             })
         },
         getPopular: async function() {
-            return await api.get(`/tv/on_the_air`, { 
+            return await api.get(`/tv/popular`, { 
                 params: API_PARAMS
             })
         },
