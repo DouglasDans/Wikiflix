@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Banner(props){
     const navigate = useNavigate()
     const details = props.details
+    console.log(props);
     const watchProviders = props.watchProviders
     const genres = details.genres || [{name: "Indisponível"}]
     

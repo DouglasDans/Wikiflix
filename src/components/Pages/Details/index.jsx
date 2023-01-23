@@ -5,7 +5,7 @@ import SearchContainer from "../../SearchContainer";
 import apiFunctions from "../../../services/API";
 import Banner from "./Banner"
 import InfosContainer from "./InfosContainer";
-import Carousel from "../../Carousel";
+import Carousel from "../../Sliders/Carousel";
 
 function getParams(Component) {
     return props => <Component {...props} params={useParams()} />;
