@@ -5,7 +5,7 @@ import SearchContainer from "../../SearchContainer";
 import apiFunctions from "../../../services/API";
 import Banner from "./Banner"
 import InfosContainer from "./InfosContainer";
-import Carousel from "../../Sliders/Carousel";
+import MediaSlider from "../../Sliders/MediaSlider";
 
 function getParams(Component) {
     return props => <Component {...props} params={useParams()} />;
@@ -51,12 +51,15 @@ function getParams(Component) {
 
         this.setState({typeContent: typeContent})
     }
-
+    
     componentDidUpdate(){
         window.scrollTo(0, 0);
+        
     }
-
+    
     render(){
+        console.log(this.state);
+        console.log(this.state.similar)
         return (
             <Fragment>
                 <Navbar />
@@ -64,8 +67,8 @@ function getParams(Component) {
                     <SearchContainer />
                     <Banner details={this.state.details} watchProviders={this.state.watchProviders} linkVideo={this.state.videos}/>
                     <InfosContainer details={this.state.details} />
-                    {/* <Recommendations recommendations={this.state.recommendations} dataType={this.state.typeContent.dataType} details={this.state.details}/> */}
-                    {/* <Recommendations recommendations={this.state.similar} dataType={this.state.typeContent} details={this.state.details}/> */}
+                    <MediaSlider itens={this.state.recommendations.results} title={"Recomendações para " + (this.state.details.title || this.state.details.name)} coverSize={'small'}/>
+                    <MediaSlider itens={this.state.similar.results} title={"Resultados similares"} coverSize={'small'}/>
                 </main>
             </Fragment>
         )
@@ -73,18 +76,4 @@ function getParams(Component) {
 }
 
 export default getParams(Details)
-
-function Recommendations(props){
-    console.log(props);
-    try {
-        return(
-            <Carousel itens={props.recommendations} dataType={props.dataType} title={'Recomendações para ' + props.details.title} coverType={'small'}/>
-        )
-    } catch (e){
-        console.warn(e);
-        return(
-            <Fragment></Fragment>
-        )
-    }
-}
 

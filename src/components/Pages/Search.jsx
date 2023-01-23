@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../Navbar";
-import Carousel from "../Sliders/Carousel";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
+import MediaSlider from "../Sliders/MediaSlider";
 
 export default function Search(){
     window.scrollTo(0, 0);
@@ -29,8 +29,8 @@ export default function Search(){
             <Navbar/>
             <main className="container-main">
                 <SearchContainer/>
-                <Carousel itens={querySearchMovies} dataType={"movie"} title={'Filmes Relacionados'} coverType={'small'}/>
-                <Carousel itens={querySearchTv} dataType={"tv"} title={'Programas de TV Relacionados'} coverType={'small'}/>
+                <MediaSlider itens={querySearchMovies} title={'Filmes Relacionados'} coverType={'small'}/>
+                <MediaSlider itens={querySearchTv} title={'Programas de TV Relacionados'} coverType={'small'}/>
 
             </main>
         </Fragment>

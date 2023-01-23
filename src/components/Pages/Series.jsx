@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
-import Carousel from "../Sliders/Carousel";
+import MediaSlider from "../Sliders/MediaSlider";
 
 
 export default function Series() {
@@ -40,10 +40,10 @@ export default function Series() {
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                <Carousel itens={tvTendenciaSemana} dataType={apiFunctions.tv.dataType} title={'Em alta Nessa Semana'} coverType={'large'}/>
-                <Carousel itens={tvNoAr} dataType={apiFunctions.tv.dataType} title={'Programas de TV no ar'} coverType={'small'}/>
-                {/* <Carousel itens={tvLatest} dataType={apiFunctions.tv.dataType} title={'Programas recém lançados'} coverType={'small'}/> */}
-                <Carousel itens={tvTopRated} dataType={apiFunctions.tv.dataType} title={'Programas Melhores Avaliados'} coverType={'large'}/>
+                <MediaSlider itens={tvTendenciaSemana} title={'Em alta Nessa Semana'} coverType={'large'}/>
+                <MediaSlider itens={tvNoAr} title={'Programas de TV no ar'} coverType={'small'}/>
+                <MediaSlider itens={tvLatest} title={'Programas recém lançados'} coverType={'small'}/>
+                <MediaSlider itens={tvTopRated} title={'Programas Melhores Avaliados'} coverType={'large'}/>
             </main>
         </Fragment>
     )

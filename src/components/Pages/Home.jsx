@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Carousel from "../Sliders/Carousel";
+import MediaSlider from "../Sliders/MediaSlider";
 import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
@@ -44,11 +44,11 @@ export default function Home(){
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                <Carousel itens={tendenciaSemana} dataType={"tv"} title={'Em Alta Essa Semana'} coverType={'large'}/>
-                <Carousel itens={moviesNosCinemas} dataType={apiFunctions.movie.dataType} title={'Atualmente Nos Cinemas'} coverType={'small'}/>
-                <Carousel itens={tvNoAr} dataType={apiFunctions.movie.dataType} title={'Programas de TV no ar'} coverType={'small'}/>
-                <Carousel itens={moviesEmBreve} dataType={apiFunctions.movie.dataType} title={'Futuros Lançamentos'} coverType={'small'}/>
-                <Carousel itens={moviesMelhoresAvaliados} dataType={apiFunctions.movie.dataType} title={'Melhores Avaliados'} coverType={'large'}/>
+                <MediaSlider itens={tendenciaSemana} title={'Em alta nessa semana'} coverSize={'large'}/>
+                <MediaSlider itens={moviesNosCinemas} title={'Atualmente nos cinemas'} coverSize={'small'}/>
+                <MediaSlider itens={tvNoAr} title={'Programas de TV no ar'} coverSize={'small'}/>
+                <MediaSlider itens={moviesEmBreve} title={'Em breve nos cimenas'} coverSize={'small'}/>
+                <MediaSlider itens={moviesMelhoresAvaliados} title={'Melhores Avaliados'} coverSize={'large'}/>
                 {/* <Carousel itens={movies} title={'Melhores filmes de 90min'} coverType={'small'}/> */}
             </main>
         </Fragment>

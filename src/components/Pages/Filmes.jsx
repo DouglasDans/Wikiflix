@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Carousel from "../Sliders/Carousel";
 import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
+import MediaSlider from "../Sliders/MediaSlider";
 
 function Filmes() {
     const [moviesTendenciaSemana, setMoviesTendenciaSemana] = useState([])
@@ -38,10 +38,10 @@ function Filmes() {
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                <Carousel itens={moviesTendenciaSemana} dataType={apiFunctions.movie.dataType} title={'Em Alta Essa Semana'} coverType={'large'}/>
-                <Carousel itens={moviesNosCinemas} dataType={apiFunctions.movie.dataType} title={'Atualmente Nos Cinemas'} coverType={'small'}/>
-                <Carousel itens={moviesEmBreve} dataType={apiFunctions.movie.dataType} title={'Futuros Lançamentos'} coverType={'small'}/>
-                <Carousel itens={moviesMelhoresAvaliados} dataType={apiFunctions.movie.dataType} title={'Melhores Avaliados'} coverType={'large'}/>
+                <MediaSlider itens={moviesTendenciaSemana} title={'Em Alta Nessa Semana'} coverType={'large'}/>
+                <MediaSlider itens={moviesNosCinemas} title={'Atualmente Nos Cinemas'} coverType={'small'}/>
+                <MediaSlider itens={moviesEmBreve} title={'Futuros Lançamentos'} coverType={'small'}/>
+                <MediaSlider itens={moviesMelhoresAvaliados} title={'Melhores Avaliados'} coverType={'large'}/>
                 {/* <Carousel itens={movies} title={'Melhores filmes de 90min'} coverType={'small'}/> */}
             </main>
         </Fragment>
