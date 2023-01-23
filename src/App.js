@@ -23,20 +23,3 @@ function App() {
 }
 
 export default App;
-
-class ScrollToTop extends React.Component {
-
-  componentDidMount() {
-      window.scrollTo(0, 0);
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-      if (this.props.location.pathname !== prevProps.location.pathname) {
-          window.scrollTo(0, 0);
-      }
-  }
-
-  render() {
-      return null;
-  }
-}

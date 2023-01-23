@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react"; 
-import { useParams } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import Navbar from "../../Navbar";
 import SearchContainer from "../../SearchContainer";
 import apiFunctions from "../../../services/API";
@@ -7,73 +7,81 @@ import Banner from "./Banner"
 import InfosContainer from "./InfosContainer";
 import Carousel from "../../Carousel";
 
-export default function Details(){
-    window.scrollTo(0, 0);
+function getParams(Component) {
+    return props => <Component {...props} params={useParams()} />;
+  }
 
-    let typeContent = 0
-
-    if(window.location.pathname.includes("/movie")){
-        typeContent = apiFunctions.movie
-    } else if(window.location.pathname.includes("/tv")){
-        typeContent = apiFunctions.tv
-    }else {
-        alert("opaaaaa")
+ class Details extends React.Component{
+    state = {
+        id: this.props.params.id,
+        typeContent: 0,
+        details: "null",
+        videos: "null",
+        similar: "null",
+        watchProviders: "null",
+        recommendations: "null",
     }
     
-    const {id} = useParams() 
-    const [details, setDetails] = useState([]);
-    const [watchProviders, setWatchProviders] = useState([]);
-    const [recommendations, setRecommendations] = useState([]);
-    const [videos, setVideos] = useState([]);
-    const [similar, setSimilar] = useState([]);
-    
-    useEffect(() => {
-        console.log(apiFunctions);
-        typeContent.getDetails(id)
-            .then((response) => {setDetails(response.data);console.log(response.data);})
-            .catch((err) => {
-            console.error("ops! ocorreu um erro" + err);
-        });
-        // typeContent.getVideos(id)
-        //     .then((response) => {setVideos(response.data.results.BR);console.log(response.data.results.BR);})
-        //     .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        // });
-        typeContent.getSimilar(id)
-            .then((response) => {setSimilar(response.data.results.BR);console.log(response.data.results.BR);})
-            .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        });
-        typeContent.getWatchProviders(id)
-            .then((response) => {setWatchProviders(response.data.results.BR);console.log(response.data.results.BR);})
-            .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        });
-        typeContent.getRecommendations(id)
-            .then((response) => {setRecommendations(response);console.log(response);})
-            .catch((err) => {console.error("ops! ocorreu um erro" + err);
-        });
-    },[id]);
-    
-    return(
-        <Fragment>
-            <Navbar />
-            <main className="container-main">
-                <SearchContainer />
-                <Banner details={details} watchProviders={watchProviders} linkVideo={videos}/>
-                <InfosContainer details={details} />
-                <Recommendations recommendations={recommendations} dataType={typeContent.dataType} details={details}/>
-                <Recommendations recommendations={similar} dataType={typeContent.dataType} details={details}/>
-            </main>
-        </Fragment>
-    )
+    componentDidMount() {
+        let typeContent = 0
+
+        if(window.location.pathname.includes("/movie")){
+            typeContent = apiFunctions.movie
+        } else if(window.location.pathname.includes("/tv")){
+            typeContent = apiFunctions.tv
+        }else {
+            alert("opaaaaa")
+        }
+
+        typeContent.getDetails(this.state.id).then((response) => {
+            this.setState({details:response.data})
+        })
+        typeContent.getVideos(this.state.id).then((response) => {
+            this.setState({videos:response.data})
+        })
+        typeContent.getSimilar(this.state.id).then((response) => {
+            this.setState({similar:response.data})
+        })
+        typeContent.getWatchProviders(this.state.id).then((response) => {
+            this.setState({watchProviders:response.data})
+        })
+        typeContent.getRecommendations(this.state.id).then((response) => {
+            this.setState({recommendations:response.data})
+        })
+
+        this.setState({typeContent: typeContent})
+    }
+
+    componentDidUpdate(){
+        window.scrollTo(0, 0);
+    }
+
+    render(){
+        return (
+            <Fragment>
+                <Navbar />
+                <main className="container-main">
+                    <SearchContainer />
+                    <Banner details={this.state.details} watchProviders={this.state.watchProviders} linkVideo={this.state.videos}/>
+                    <InfosContainer details={this.state.details} />
+                    {/* <Recommendations recommendations={this.state.recommendations} dataType={this.state.typeContent.dataType} details={this.state.details}/> */}
+                    {/* <Recommendations recommendations={this.state.similar} dataType={this.state.typeContent} details={this.state.details}/> */}
+                </main>
+            </Fragment>
+        )
+    }
 }
 
-
+export default getParams(Details)
 
 function Recommendations(props){
+    console.log(props);
     try {
         return(
-            <Carousel itens={props.recommendations.data.results} dataType={props.dataType} title={'Recomendações para ' + props.details.title} coverType={'small'}/>
+            <Carousel itens={props.recommendations} dataType={props.dataType} title={'Recomendações para ' + props.details.title} coverType={'small'}/>
         )
     } catch (e){
+        console.warn(e);
         return(
             <Fragment></Fragment>
         )

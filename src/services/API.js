@@ -211,17 +211,3 @@ const apiFunctions = {
 export default apiFunctions
 
 
-
-
-
-
-
-
-
-
-// export default function getPopularGames(){
-//     fetch(API_URL + '/movie/popular?'+ API_KEY +'&'+ API_LANGUAGE +'&page=2').then(response => response.json()).then(data => {
-//         console.log(data.results)
-//         return data.results
-//     })
-// }
