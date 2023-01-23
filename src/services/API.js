@@ -214,9 +214,11 @@ export default apiFunctions
 
 
 
-
-
-
+// this.details = async function(id){
+//     return await api.get(`/${mediaType}/${id}`, { 
+//         params: API_PARAMS
+//     })
+// }
 
 
 // export default function getPopularGames(){
