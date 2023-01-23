@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../Navbar";
-import Carousel from "../Carousel";
+import Carousel from "../Sliders/Carousel";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
 

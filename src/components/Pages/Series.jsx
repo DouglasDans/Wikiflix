@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
-import Carousel from "../Carousel";
+import Carousel from "../Sliders/Carousel";
 
 
 export default function Series() {

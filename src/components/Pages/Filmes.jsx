@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Carousel from "../Carousel";
+import Carousel from "../Sliders/Carousel";
 import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
