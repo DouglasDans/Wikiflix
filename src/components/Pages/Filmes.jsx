@@ -38,10 +38,10 @@ function Filmes() {
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                <MediaSlider itens={moviesTendenciaSemana} title={'Em Alta Nessa Semana'} coverType={'large'}/>
-                <MediaSlider itens={moviesNosCinemas} title={'Atualmente Nos Cinemas'} coverType={'small'}/>
+                <MediaSlider itens={moviesTendenciaSemana} title={'Em Alta Nessa Semana'} coverSize={'large'}/>
+                <MediaSlider itens={moviesNosCinemas} title={'Atualmente Nos Cinemas'} coverSize={'small'}/>
                 <MediaSlider itens={moviesEmBreve} title={'Futuros Lançamentos'} coverType={'small'}/>
-                <MediaSlider itens={moviesMelhoresAvaliados} title={'Melhores Avaliados'} coverType={'large'}/>
+                <MediaSlider itens={moviesMelhoresAvaliados} title={'Melhores Avaliados'} coverSize={'large'}/>
                 {/* <Carousel itens={movies} title={'Melhores filmes de 90min'} coverType={'small'}/> */}
             </main>
         </Fragment>

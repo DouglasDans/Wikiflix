@@ -29,8 +29,8 @@ export default function Search(){
             <Navbar/>
             <main className="container-main">
                 <SearchContainer/>
-                <MediaSlider itens={querySearchMovies} title={'Filmes Relacionados'} coverType={'small'}/>
-                <MediaSlider itens={querySearchTv} title={'Programas de TV Relacionados'} coverType={'small'}/>
+                <MediaSlider itens={querySearchMovies} title={'Filmes Relacionados'} coverSize={'small'}/>
+                <MediaSlider itens={querySearchTv} title={'Programas de TV Relacionados'} coverSize={'small'}/>
 
             </main>
         </Fragment>

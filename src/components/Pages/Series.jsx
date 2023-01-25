@@ -40,10 +40,10 @@ export default function Series() {
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                <MediaSlider itens={tvTendenciaSemana} title={'Em alta Nessa Semana'} coverType={'large'}/>
-                <MediaSlider itens={tvNoAr} title={'Programas de TV no ar'} coverType={'small'}/>
-                <MediaSlider itens={tvLatest} title={'Programas recém lançados'} coverType={'small'}/>
-                <MediaSlider itens={tvTopRated} title={'Programas Melhores Avaliados'} coverType={'large'}/>
+                <MediaSlider itens={tvTendenciaSemana} title={'Em alta Nessa Semana'} coverSize={'large'}/>
+                <MediaSlider itens={tvNoAr} title={'Programas de TV no ar'} coverSize={'small'}/>
+                <MediaSlider itens={tvLatest} title={'Programas recém lançados'} coverSize={'small'}/>
+                <MediaSlider itens={tvTopRated} title={'Programas Melhores Avaliados'} coverSize={'large'}/>
             </main>
         </Fragment>
     )

@@ -33,6 +33,7 @@ function getParams(Component) {
             alert("opaaaaa")
         }
 
+
         typeContent.getDetails(this.state.id).then((response) => {
             this.setState({details:response.data})
         })
@@ -54,7 +55,6 @@ function getParams(Component) {
     
     componentDidUpdate(){
         window.scrollTo(0, 0);
-        
     }
     
     render(){
