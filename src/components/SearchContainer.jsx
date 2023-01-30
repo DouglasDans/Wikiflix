@@ -3,7 +3,7 @@ import "./SearchContainer.css"
 import { useNavigate } from "react-router-dom";
 
 export default function SearchContainer(){
-    let navigate = useNavigate()
+    const navigate = useNavigate()
 
     function handleSubmit(e){
         e.preventDefault()
@@ -11,8 +11,21 @@ export default function SearchContainer(){
         
     }
 
+    function voltarPag(){
+        navigate(-1)
+    }
+
+
     return(
             <header className="search-container">
+                <div className="navigation-arrow-container">
+                    <div onClick={voltarPag} className="arrow-left">
+                        <span class="material-symbols-rounded">arrow_back_ios_new</span>
+                    </div>
+                    <div className="arrow-right">
+                        <span class="material-symbols-rounded">arrow_forward_ios</span>
+                    </div>
+                </div>
                 <form onSubmit={handleSubmit} id="search-form" method="get">
                     <span className="material-symbols-rounded search-icon">
 						search

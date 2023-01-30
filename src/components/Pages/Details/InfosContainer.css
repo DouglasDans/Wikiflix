@@ -3,6 +3,7 @@
     display:grid;
     grid-template-columns: 1fr 300px;
     gap: 1.3rem;
+    align-items: start;
 }
 
 .left-details-container{

@@ -6,7 +6,8 @@
     height: 420px;
     width: 60%;
     z-index: 1;
-    background: linear-gradient(to left, rgba(0,0,0,0), rgb(18, 67, 100) 50%, rgb(18, 67, 100));    position: absolute;
+    background: linear-gradient(to left, rgba(0,0,0,0), var(--color1) 50%, var(--color1));
+    position: absolute;
 }
 
 .bg-img-banner img{

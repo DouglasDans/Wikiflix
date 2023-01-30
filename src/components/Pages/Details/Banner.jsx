@@ -1,12 +1,9 @@
 import apiFunctions from "../../../services/API";
 import WatchProviders from "./WatchProviders";
 import './Banner.css'
-import { useNavigate } from "react-router-dom";
 
 export default function Banner(props){
-    const navigate = useNavigate()
     const details = props.details
-    console.log(props);
     const watchProviders = props.watchProviders
     const genres = details.genres || [{name: "Indisponível"}]
     
@@ -26,15 +23,13 @@ export default function Banner(props){
         created_by: details.created_by || null
     }
     
-    function voltarPag(){
-        navigate(-1)
-    }
+    
 
     return(
         <div className="container-banner">
             <div className="bg-img-banner">
                 <div className="gradient-banner"></div>
-                <img src={apiFunctions.API_IMAGE_URL + apiData.backdrop_path} />
+                <img id="img-banner-details" src={apiFunctions.API_IMAGE_URL + apiData.backdrop_path} />
             </div>
             <div className="container-details-banner">
                 <div className="container-details-info">
