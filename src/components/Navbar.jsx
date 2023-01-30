@@ -20,19 +20,19 @@ class ContainerLinks extends React.Component{
 	render(){
 		return(
 			<nav>
-				<small className="menu-title">MENU</small>
+				<small className="menu-title">Menu</small>
 				<ul>
 					<li className="nav-link-button">
-						<LinkProps url="/" iconName="whatshot" linkName="Bombando" />
+						<LinkProps url="/" iconName="home" linkName="Bombando" />
 					</li>
 					<li className="nav-link-button">
 						<LinkProps url="/filmes" iconName="theaters" linkName="Filmes" />
 					</li>
 					<li className="nav-link-button">
-						<LinkProps url="/series" iconName="ondemand_video" linkName="Séries" />
+						<LinkProps url="/series" iconName="tv" linkName="Séries" />
 					</li>
 					<li className="nav-link-button">
-						<LinkProps url="/watchlist" iconName="bookmarks" linkName="Watchlist" />
+						<LinkProps url="/watchlist" iconName="bookmark" linkName="Watchlist" />
 					</li>
 				</ul>
 			</nav>

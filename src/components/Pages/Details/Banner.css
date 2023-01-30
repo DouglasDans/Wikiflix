@@ -1,17 +1,17 @@
-container-banner{
-    height: 450px;
+.container-banner{
+    height: auto;
 }
 
 .gradient-banner{
-    height: 450px;
-    width: 50%;
-    background: linear-gradient(to left, rgba(0,0,0,0), var(--color2) 50%, var(--color2) 75%);    position: absolute;
+    height: 420px;
+    width: 60%;
     z-index: 1;
+    background: linear-gradient(to left, rgba(0,0,0,0), rgb(18, 67, 100) 50%, rgb(18, 67, 100));    position: absolute;
 }
 
 .bg-img-banner img{
     width: 60%;
-    height: 450px;
+    height: 420px;
     object-fit: cover;
     position: absolute;
     opacity: 0.4;
@@ -20,7 +20,7 @@ container-banner{
 }
 
 .container-details-banner{
-    height: 450px;
+    height: 420px;
     width: 83%;
     position: relative;
     z-index: 2;
@@ -28,7 +28,7 @@ container-banner{
     align-items: center;
 }
 
-.container-details-banner .button-voltar{
+/* .container-details-banner .button-voltar{
     padding-left: 1.9rem;
     position: absolute;
     top:0;
@@ -48,25 +48,25 @@ container-banner{
 }
 .container-details-banner .button-voltar span{
     color: var(--color10);
-}
+} */
 
 .container-details-info{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     margin-left: 3.4rem;
-    gap: 1.2rem;
+    gap: 20px;
 }
 .container-details-info .top-container{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap:1.2rem;
+    gap: 20px;
 }
 
 .container-details-info .left-container{
-    height: 165px;
-    width: 110px;
+    height: 215px;
+    width: 145px;
 }
 
 .container-details-info .left-container img{
@@ -88,11 +88,11 @@ container-banner{
 .info-title h1{
     color: var(--color12);
     font-weight: 600;
-    font-size: 40px;
+    font-size: 3rem;
     max-width: 40vw;
 }
 .info-title div{
-    color: var(--color8);
+    color: var(--color9);
     font-size: 0.9rem;
     font-weight: 600;
     display: flex;
@@ -105,7 +105,7 @@ container-banner{
     row-gap: 10px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color8);
+    color: var(--color9);
 }
 
 .streaming-container .streaming-icons-container{
@@ -121,7 +121,7 @@ container-banner{
 .container-details-info .bottom-container .infos-icon-container{
     display: flex;
     align-items: flex-end;
-    color: var(--color7);
+    color: var(--color9);
     font-weight: 600;
     gap: 1.3rem;
 }

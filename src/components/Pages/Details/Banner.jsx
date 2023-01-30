@@ -33,16 +33,10 @@ export default function Banner(props){
     return(
         <div className="container-banner">
             <div className="bg-img-banner">
+                <div className="gradient-banner"></div>
                 <img src={apiFunctions.API_IMAGE_URL + apiData.backdrop_path} />
             </div>
-            <div className="gradient-banner"></div>
             <div className="container-details-banner">
-                <button onClick={voltarPag} className="button-voltar">
-                    <span className="material-symbols-rounded">
-                        arrow_back
-                    </span>
-                    Voltar
-                </button>
                 <div className="container-details-info">
                     <div className="top-container">
                         <div className="left-container">
@@ -80,7 +74,6 @@ export default function Banner(props){
                         </div>
                     </div>
                 </div>
-                <button >s</button>
             </div>
         </div>
     )

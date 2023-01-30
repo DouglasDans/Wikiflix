@@ -1,5 +1,7 @@
 import ListGenres from "./ListGenres";
 import './InfosContainer.css'
+import { Fragment } from "react";
+import apiFunctions from "../../../services/API";
 
 export default function InfosContainer(props){
     const details = props.details
@@ -30,6 +32,7 @@ export default function InfosContainer(props){
                 return data.toString(", ")
             } catch (error) {
                 return "Indisponível"
+                console.warn(error);
             }
         },
 
@@ -44,7 +47,10 @@ export default function InfosContainer(props){
                 <div className="generos-container">
                     <ListGenres data={details.genres}/>
                 </div>
+                <YoutubeVideo videoData={props.videos}/>
+                <Review reviews={props.reviews}/>
             </div>
+
             <div className="right-details-container">
                 <div className="info-line">
                     <p className="titulo">Título Original: </p><p>{apiData.original_title}</p>
@@ -70,4 +76,42 @@ export default function InfosContainer(props){
             </div>
         </div>
     )
+}
+
+function YoutubeVideo(props) {
+    try {
+        let video = props.videoData.results[0]
+        console.log(video);
+        return (
+            <Fragment>
+                <iframe className="youtube-video" src={`https://www.youtube.com/embed/${video.key}`}title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; fullscreen; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </Fragment>
+        )
+    } catch (error) {
+        console.warn(error);
+    }
+}
+
+
+function Review(props) {
+    try {
+        let review = props.reviews.results[0]
+        console.log(review);
+
+        return (
+            <Fragment>
+                <div className="review-container">
+                    <div className="author-image">
+                        <img src={apiFunctions.API_IMAGE_URL + review.author_details.avatar_path}/>
+                    </div>
+                    <div className="review-content">
+                        <h4 className="author-name">{review.author}</h4>
+                        <p className="review-text">{review.content}</p>
+                    </div>
+                </div>
+            </Fragment>
+        )
+    } catch (error) {
+        
+    }
 }

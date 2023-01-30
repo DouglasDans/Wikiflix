@@ -1,9 +1,10 @@
 
 .header-container{
     position: fixed;
-    background-color: var(--color3);
+    background-color: var(--color2);
+    border-right: solid 1px var(--color5);
     height: 100vh;
-    width: 230px;
+    width: 220px;
     padding: 40px 30px;
 
     display: flex;
@@ -16,7 +17,7 @@
 }
 
 .header-container .menu-title{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.1rem;
     color: var(--color7);
@@ -41,7 +42,6 @@
 
 
 .header-container .nav-link-button{
-    font-family: 'Quicksand', sans-serif;
     list-style: none;
     padding: 0.6rem;
     margin: 0 1rem;
@@ -56,13 +56,13 @@
 }
 
 .nav-link-button .material-symbols-outlined, .nav-link-button .material-symbols-rounded{
-    color: var(--color9);
+    color: var(--color6);
     font-weight: 500;
     font-size: 30px;
 }
 
 .nav-link-button .titleLink {
-    color: var(--color12);
+    color: var(--color10);
     font-weight: 500;
 }
 

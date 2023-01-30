@@ -5,20 +5,20 @@
 }
 
 :root{
-    --color1: #0A0B10;
-    --color2: #11131B;
-    --color3: #181A25;
-    --color4: #222432;
-    --color5: #2F3242;
-    --color6: #414454;
-    --color7: #666B85;
-    --color8: #7D83A4;
-    --color9: #99A0C3;
-    --color10: #BCC2E2;
-    --color11: #D7DBF5;
-    --color12: #ECEFFF;
+    --color1: #0B0C0E;
+    --color2: #101114;
+    --color3: #191B1F;
+    --color4: #24272D;
+    --color5: #30343B;
+    --color6: #40454F;
+    --color7: #505663;
+    --color8: #67707F;
+    --color9: #8C96A6;
+    --color10: #B5BDC9;
+    --color11: #DFE2E7;
+    --color12: #F3F4F6;
     --red: #AE1717;
-
+    
 }
 
 ::-webkit-scrollbar{
@@ -34,26 +34,20 @@
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color6);
 }
-  
+
 
 body{
     background-color: var(--color2);
     color: var(--color12);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
-
-p, small{
-	font-family: 'Open Sans', sans-serif;
-}
-
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Quicksand', Impact;
     color: var(--color12);
 }
 
 
 .container-main{
-	margin-left: 230px;
+	margin-left: 220px;
     
     width: auto;
     height: 100%;

@@ -28,8 +28,39 @@
     border-radius: 50px;
 }
 
+.youtube-video{
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+}
+
+.review-container{
+    background-color: var(--color1);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    column-gap: 20px;
+}
+
+.review-container .author-image img{
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+}
+
+.review-container .review-content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+
+
+
+
+
 .right-details-container{
-    background-color: var(--color3);
+    background-color: var(--color1);
     border-radius: 10px;
     padding: 25px;
     display: flex;
@@ -43,10 +74,7 @@
     font-size: 0.9rem;
     gap: 0.3rem;
 }
-.info-line p{
-    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-}
 .info-line .titulo{
-    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+    color: var(--color8);
     font-weight: 600;
 }
