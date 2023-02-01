@@ -3,12 +3,20 @@
     padding: 1.2rem 3.4rem;
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
+    align-items: center;
 }
 
 .navigation-arrow-container{
     display: flex;
     gap: 20px;
+}
+.navigation-arrow-container button{
+    background-color: transparent;
+    border: 0;
+    color: var(--color12);
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
 }
 
 .search-icon{

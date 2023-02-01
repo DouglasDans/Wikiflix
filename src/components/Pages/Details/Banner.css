@@ -135,6 +135,7 @@
     font-size: 0.9rem;
     display: flex;
     align-items: center;
+    gap: 2px;
 }
 .info-icon div span{
     font-size: 1rem;

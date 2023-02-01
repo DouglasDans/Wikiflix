@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 export default function MediaSlider(props) {
     let dataType = "null"
-    console.log(props);
     try {
         let itens = props.itens.map((item, index) => {
             if (item.title != null) {

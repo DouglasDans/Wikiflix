@@ -30,6 +30,9 @@ function Details(){
     const [recommendations, setRecommendations] = useState([]);
     const [similar, setSimilar] = useState([]);
     
+    //Somente TV
+    const [ratings, setRatings] = useState(null)
+
     useEffect(() => {
         typeContent.getDetails(id).then((response) => {setDetails(response.data)})
         
@@ -42,6 +45,11 @@ function Details(){
         typeContent.getSimilar(id).then((response) => {setSimilar(response.data.results)})
         
         typeContent.getRecommendations(id).then((response) => {setRecommendations(response.data.results)})
+
+        if (typeContent.dataType === "tv") {
+            typeContent.getContentRatings(id).then((response) => {setRatings(response.data.results)})
+        }
+        
     },[id]);
 
     return (
@@ -49,8 +57,8 @@ function Details(){
             <Navbar />
             <main className="container-main">
                 <SearchContainer />
-                <Banner details={details} watchProviders={watchProviders}/>
-                <InfosContainer details={details} videos={videos} reviews={reviews}/>
+                <Banner details={details} watchProviders={watchProviders} typeContent={typeContent.dataType} ratings={ratings}/>
+                <InfosContainer details={details} videos={videos} reviews={reviews} typeContent={typeContent.dataType}/>
                 <MediaSlider itens={recommendations} title={"Recomendações para " + (details.title || details.name)} coverSize={'small'}/>
                 <MediaSlider itens={similar} title={"Resultados similares"} coverSize={'small'}/>
             </main>

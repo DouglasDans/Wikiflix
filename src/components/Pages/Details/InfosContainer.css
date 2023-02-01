@@ -32,12 +32,12 @@
 .youtube-video{
     width: 100%;
     height: 300px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .review-container{
     background-color: var(--color1);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 20px;
     display: flex;
     column-gap: 20px;
@@ -47,6 +47,7 @@
     width: 60px;
     height: 60px;
     border-radius: 60px;
+    background-color: var(--color2);
 }
 
 .review-container .review-content{
@@ -54,11 +55,6 @@
     flex-direction: column;
     row-gap: 10px;
 }
-
-
-
-
-
 
 .right-details-container{
     background-color: var(--color1);

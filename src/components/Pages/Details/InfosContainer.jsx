@@ -5,13 +5,15 @@ import apiFunctions from "../../../services/API";
 
 export default function InfosContainer(props){
     const details = props.details
-    const date = new Date(details.release_date)
 
     let apiData = {
         tagline: details.tagline || "",
         overview: details.overview || "",
         original_title: details.original_title || details.original_name|| "Indisponível",
-        release_date: details.release_date || details.first_air_date || "Indisponível",
+        release_date:{
+            tv: new Date (details.first_air_date) || "Indisponível",
+            movie: new Date (details.release_date)|| "Indisponível",
+        },
         production_companies: function () {
             try {
                 let data = []
@@ -32,7 +34,7 @@ export default function InfosContainer(props){
                 return data.toString(", ")
             } catch (error) {
                 return "Indisponível"
-                console.warn(error);
+
             }
         },
 
@@ -56,7 +58,7 @@ export default function InfosContainer(props){
                     <p className="titulo">Título Original: </p><p>{apiData.original_title}</p>
                 </div>
                 <div className="info-line">
-                    <p className="titulo">Lançamento: </p><p> {`${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`}</p>
+                    <p className="titulo">Lançamento: </p><p> {`${apiData.release_date[props.typeContent].getDay()}/${apiData.release_date[props.typeContent].getMonth()}/${apiData.release_date[props.typeContent].getFullYear()}`}</p>
                 </div>
                 <div className="info-line">
                     <p className="titulo">Estudios de Produção: </p><p>{apiData.production_companies()}</p>
