@@ -3,6 +3,7 @@ import MediaSlider from "../Sliders/MediaSlider";
 import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
+import Footer from "../Footer";
 
 export default function Home(){
     const [tendenciaSemana, setTendenciaSemana] = useState([])
@@ -50,6 +51,9 @@ export default function Home(){
                 <MediaSlider itens={moviesEmBreve} title={'Em breve nos cimenas'} coverSize={'small'}/>
                 <MediaSlider itens={moviesMelhoresAvaliados} title={'Melhores Avaliados'} coverSize={'large'}/>
                 {/* <Carousel itens={movies} title={'Melhores filmes de 90min'} coverType={'small'}/> */}
+                
+
+                <Footer/>
             </main>
         </Fragment>
     )

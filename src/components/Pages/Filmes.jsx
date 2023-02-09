@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
 import MediaSlider from "../Sliders/MediaSlider";
+import Footer from "../Footer";
 
 function Filmes() {
     const [moviesTendenciaSemana, setMoviesTendenciaSemana] = useState([])
@@ -43,6 +44,8 @@ function Filmes() {
                 <MediaSlider itens={moviesEmBreve} title={'Futuros Lançamentos'} coverType={'small'}/>
                 <MediaSlider itens={moviesMelhoresAvaliados} title={'Melhores Avaliados'} coverSize={'large'}/>
                 {/* <Carousel itens={movies} title={'Melhores filmes de 90min'} coverType={'small'}/> */}
+
+                <Footer/>
             </main>
         </Fragment>
     )
