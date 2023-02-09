@@ -12,7 +12,7 @@ export default function Footer(){
                 </div>
                 <div className="right-side">
                     <div className="links">
-                        <a href="https://github.com/DouglasDans/Wikiflix"><GithubLogo/></a>
+                        <a href="https://github.com/DouglasDans/Wikiflix" target={"_blank"}><GithubLogo/></a>
                     </div>
                 </div>
             </footer>
