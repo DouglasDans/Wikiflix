@@ -6,6 +6,7 @@ import apiFunctions from "../../../services/API";
 import Banner from "./Banner"
 import InfosContainer from "./InfosContainer";
 import MediaSlider from "../../Sliders/MediaSlider";
+import Footer from "../../Footer";
 
 
 
@@ -61,6 +62,8 @@ function Details(){
                 <InfosContainer details={details} videos={videos} reviews={reviews} typeContent={typeContent.dataType}/>
                 <MediaSlider itens={recommendations} title={"Recomendações para " + (details.title || details.name)} coverSize={'small'}/>
                 <MediaSlider itens={similar} title={"Resultados similares"} coverSize={'small'}/>
+
+                <Footer/>
             </main>
         </Fragment>
     )

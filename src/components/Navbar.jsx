@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import {Link, NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 import "./Navbar.css"
 
 export default class Navbar extends React.Component {
@@ -7,8 +7,9 @@ export default class Navbar extends React.Component {
 		const logo = process.env.PUBLIC_URL + "img/wikiflix_logo.svg"
 		return (
 			<header className="header-container">
-				<NavLink to={'/'}>
+				<NavLink to={'/'} style={{color: "var(--color8)", textDecoration: "none", fontSize : "0.8rem", fontWeight: "600"}}>
 					<WikiflixLogo/>
+					<small>BETA</small>
 				</NavLink>
 				<ContainerLinks />
 			</header>

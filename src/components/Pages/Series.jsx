@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
 import MediaSlider from "../Sliders/MediaSlider";
+import Footer from "../Footer";
 
 
 export default function Series() {
@@ -44,6 +45,8 @@ export default function Series() {
                 <MediaSlider itens={tvNoAr} title={'Programas de TV no ar'} coverSize={'small'}/>
                 <MediaSlider itens={tvLatest} title={'Programas recém lançados'} coverSize={'small'}/>
                 <MediaSlider itens={tvTopRated} title={'Programas Melhores Avaliados'} coverSize={'large'}/>
+
+                <Footer/>
             </main>
         </Fragment>
     )

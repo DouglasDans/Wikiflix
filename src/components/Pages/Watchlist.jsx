@@ -9,6 +9,7 @@ export default class Watchlist extends React.Component{
                 <Navbar />
                 <main className="container-main">
                     <SearchContainer/>
+                    {/* quem sabe no futuro */}
                 </main>
             </Fragment>
         )

@@ -1,0 +1,30 @@
+footer{
+    background-color: var(--color1);
+    padding: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .wiki-logo{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+footer .wiki-logo .description{
+    color: var(--color8);
+}
+
+
+footer .right-side .links a svg{
+    height: 40px;
+    width: 40px;
+    fill: var(--color9);
+    transition: 200ms;
+}
+footer .right-side .links a svg:hover{
+    cursor: pointer;
+    fill: var(--color11);
+    transition: 200ms;
+}

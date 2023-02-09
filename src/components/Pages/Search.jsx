@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import apiFunctions from "../../services/API";
 import MediaSlider from "../Sliders/MediaSlider";
+import Footer from "../Footer";
 
 export default function Search(){
     window.scrollTo(0, 0);
@@ -33,6 +34,8 @@ export default function Search(){
                 <MediaSlider itens={querySearchTv} title={'Programas de TV Relacionados'} coverSize={'small'}/>
 
             </main>
+
+            <Footer/>
         </Fragment>
     )
 }
