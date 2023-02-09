@@ -33,9 +33,10 @@ export default function Search(){
                 <MediaSlider itens={querySearchMovies} title={'Filmes Relacionados'} coverSize={'small'}/>
                 <MediaSlider itens={querySearchTv} title={'Programas de TV Relacionados'} coverSize={'small'}/>
 
+
+                <Footer/>
             </main>
 
-            <Footer/>
         </Fragment>
     )
 }
