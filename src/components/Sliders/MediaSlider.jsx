@@ -55,10 +55,10 @@ export default function MediaSlider(props) {
                     touchTracking
                     touchMoveDefaultEvents
                     autoWidth
-                    Height={55}
+                    Height={50}
                     disableDotsControls
                     // infinite
-                    paddingLeft={55}
+                    paddingLeft={50}
                     renderPrevButton={() => {
                         return(
                         <div className='arrow-container large-left-arrow'>

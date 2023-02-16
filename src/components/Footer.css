@@ -1,7 +1,7 @@
 footer{
     background-color: var(--color1);
-    padding: 2rem;
-
+    padding: 60px 50px;
+    margin-top: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;

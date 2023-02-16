@@ -1,5 +1,5 @@
 .details-container{
-    margin: 36px 36px 56px 56px;
+    margin: 30px 30px 50px 50px;
     display:grid;
     grid-template-columns: 1fr 300px;
     gap: 1.3rem;

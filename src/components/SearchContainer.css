@@ -6,6 +6,12 @@
     align-items: center;
 }
 
+.navigation-search-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
 .navigation-arrow-container{
     display: flex;
     gap: 20px;
@@ -17,6 +23,10 @@
     user-select: none;
     -webkit-user-select: none;
     cursor: pointer;
+}
+
+.navigation-arrow-container .arrow-right{
+    opacity: 0.3;
 }
 
 .search-icon{
