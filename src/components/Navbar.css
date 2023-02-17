@@ -19,9 +19,9 @@
 .header-container .menu-title{
     font-family: 'Noto Sans', sans-serif;
     font-size: 10px;
-    letter-spacing: 0.1rem;
-    color: var(--color7);
-    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--color5);
+    font-weight: 900;
 }
 
 .header-container nav{
