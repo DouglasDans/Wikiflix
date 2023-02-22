@@ -17,6 +17,8 @@ export default function MediaSlider(props) {
             }
 
             const date = new Date(item.release_date || item.first_air_date)
+            const imgURL = item.poster_path ? 'https://image.tmdb.org/t/p/w500/' + item.poster_path : "/img/placeholder.png"
+
 
             if (props.coverSize === "large") {
                 const style = { width: 400 };
@@ -37,7 +39,7 @@ export default function MediaSlider(props) {
                     return (
                         <div className="item" style={style}>
                             <Link to={`/${dataType}/${item.id}`}>
-                                <img className='carousel-img-small' height="165px" width="110px" src={'https://image.tmdb.org/t/p/w500/' + item.poster_path} />
+                                <img className='carousel-img-small' height="165px" width="110px" src={imgURL } />
                             </Link>
                         </div>
                     );
