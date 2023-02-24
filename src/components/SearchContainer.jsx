@@ -15,26 +15,29 @@ export default function SearchContainer(){
         navigate(-1)
     }
     function nextPage(){
-        navigate(1)
+        navigate(+1)
     }
 
 
     return(
             <header className="search-container">
-                <div className="navigation-arrow-container">
-                    <button onClick={backPage} className="arrow-left">
-                        <span class="material-symbols-rounded">arrow_back_ios_new</span>
-                    </button>
-                    <button onclick={nextPage} className="arrow-right">
-                        <span class="material-symbols-rounded">arrow_forward_ios</span>
-                    </button>
+                <div className="navigation-search-container">
+                    <div className="navigation-arrow-container">
+                        <button onClick={backPage} className="arrow-left">
+                            <span class="material-symbols-rounded">arrow_back_ios_new</span>
+                        </button>
+                        <button onclick={nextPage} className="arrow-right">
+                            <span class="material-symbols-rounded">arrow_forward_ios</span>
+                        </button>
+                    </div>
+                    <form onSubmit={handleSubmit} id="search-form" method="get">
+                        <span className="material-symbols-rounded search-icon">
+                            search
+                        </span> 
+                        <input type="text" placeholder="Pesquisar" className="search-input"></input>
+                    </form>
                 </div>
-                <form onSubmit={handleSubmit} id="search-form" method="get">
-                    <span className="material-symbols-rounded search-icon">
-						search
-					</span> 
-                    <input type="text" placeholder="Pesquisar" className="search-input"></input>
-                </form>
+                
                 <div className="user-container">
                     <section className="userImage"></section>
                 </div>
