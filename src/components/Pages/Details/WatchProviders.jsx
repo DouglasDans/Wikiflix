@@ -24,7 +24,7 @@ export default function WatchProviders(props){
                         watchProviders.flatrate.map((item) => {
                             if (item.display_priority < 30) {
                                 return(
-                                    <img  src={apiFunctions.API_IMAGE_URL + item.logo_path}/>
+                                    <img  src={"https://image.tmdb.org/t/p/w500/" + item.logo_path}/>
                                 )
                             }
                         })

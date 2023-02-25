@@ -85,6 +85,7 @@
     width: 145px;
     border-radius: 10px;
     object-fit: cover;
+    background-color:var(--color1);
 }
 
 .item a{

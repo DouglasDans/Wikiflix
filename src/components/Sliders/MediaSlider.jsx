@@ -86,7 +86,7 @@ export default function MediaSlider(props) {
         )
     
     } catch (error) {
-        
+        console.warn(error);
     }
 
    

@@ -9,7 +9,6 @@ export default function Banner(props){
     const genres = details.genres || [{name: "Indisponível"}]
     const typeContent = props.typeContent
     const ratings = props.ratings || null
-    console.log(new Date(details.first_air_date));
     let apiData = {
         title: details.title || details.name || null,
         backdrop_path: details.backdrop_path || null,
@@ -27,6 +26,8 @@ export default function Banner(props){
         created_by: details.created_by || null,
         rating: details.rating
     }
+
+    console.log(typeContent);
     
     function InfoTitle(){
         if (typeContent === "movie") {
@@ -65,13 +66,13 @@ export default function Banner(props){
         <div className="container-banner">
             <div className="bg-img-banner">
                 <div className="gradient-banner"></div>
-                <img id="img-banner-details" src={apiFunctions.API_IMAGE_URL + apiData.backdrop_path} />
+                <img id="img-banner-details" src={"https://image.tmdb.org/t/p/w500/" + apiData.backdrop_path} />
             </div>
             <div className="container-details-banner">
                 <div className="container-details-info">
                     <div className="top-container">
                         <div className="left-container">
-                            <img src={apiFunctions.API_IMAGE_URL + apiData.poster_path}/>
+                            <img src={"https://image.tmdb.org/t/p/w500/" + apiData.poster_path}/>
                         </div>
                         <div className="right-container">
                             <InfoTitle/>       

@@ -1,14 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react"; 
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Navbar";
 import SearchContainer from "../../SearchContainer";
-import apiFunctions from "../../../services/API";
 import Banner from "./Banner"
 import InfosContainer from "./InfosContainer";
 import MediaSlider from "../../Sliders/MediaSlider";
 import Footer from "../../Footer";
-
-
+import getDetails from "../../../services/getDetailsData";
 
 function Details(){
     window.scrollTo(0, 0);
@@ -16,57 +14,44 @@ function Details(){
     let typeContent = 0
 
     if(window.location.pathname.includes("/movie")){
-        typeContent = apiFunctions.movie
+        typeContent = "movie"
     } else if(window.location.pathname.includes("/tv")){
-        typeContent = apiFunctions.tv
-    }else {
-        alert("opaaaaa")
+        typeContent = "tv"
     }
     
     const {id} = useParams() 
-    const [details, setDetails] = useState([]);
-    const [watchProviders, setWatchProviders] = useState([]);
-    const [videos, setVideos] = useState([]);
-    const [reviews, setReviews] = useState([]);
-    const [recommendations, setRecommendations] = useState([]);
-    const [similar, setSimilar] = useState([]);
     
-    //Somente TV
-    const [ratings, setRatings] = useState(null)
+    const [apiData, setAPIData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        typeContent.getDetails(id).then((response) => {setDetails(response.data)})
-        
-        typeContent.getWatchProviders(id).then((response) => {setWatchProviders(response.data.results.BR)})
-        
-        typeContent.getVideos(id).then((response) => {setVideos(response.data)})
-
-        typeContent.getReviews(id).then((response) => {setReviews(response.data)})
-        
-        typeContent.getSimilar(id).then((response) => {setSimilar(response.data.results)})
-        
-        typeContent.getRecommendations(id).then((response) => {setRecommendations(response.data.results)})
-
-        if (typeContent.dataType === "tv") {
-            typeContent.getContentRatings(id).then((response) => {setRatings(response.data.results)})
+        async function getData() {
+            getDetails(id, typeContent).then(res => {setAPIData(res);setLoading(false)})
         }
-        
+        getData()
     },[id]);
 
-    return (
-        <Fragment>
-            <Navbar />
-            <main className="container-main">
-                <SearchContainer />
-                <Banner details={details} watchProviders={watchProviders} typeContent={typeContent.dataType} ratings={ratings}/>
-                <InfosContainer details={details} videos={videos} reviews={reviews} typeContent={typeContent.dataType}/>
-                <MediaSlider itens={recommendations} title={"Recomendações para " + (details.title || details.name)} coverSize={'small'}/>
-                <MediaSlider itens={similar} title={"Resultados similares"} coverSize={'small'}/>
+    if (loading) {
+        return("loading")
+    } else {
+        console.log(apiData.typeContent);
+        return (
+            <Fragment>
+                <Navbar />
+                <main className="container-main">
+                    <SearchContainer />
+                    <Banner details={apiData.details} watchProviders={apiData.watchProviders.results.BR} typeContent={apiData.typeContent}/>
+                    <InfosContainer details={apiData.details} videos={apiData.videos} reviews={apiData.reviews.results} typeContent={apiData.typeContent}/>
+                    <MediaSlider itens={apiData.recommendations.results} title={"Recomendações para " + (apiData.details.title || apiData.details.name)} coverSize={'small'}/>
+                    <MediaSlider itens={apiData.similar.results} title={"Resultados similares"} coverSize={'small'}/>
+    
+                    <Footer/>
+                </main>
+            </Fragment>
+        )
+        
+    }
 
-                <Footer/>
-            </main>
-        </Fragment>
-    )
 }
 export default Details
 
