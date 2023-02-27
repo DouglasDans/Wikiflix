@@ -144,3 +144,52 @@
     font-size: 0.6rem;
     font-weight: 600;
 }
+
+
+@media (max-width: 900px) {
+    .gradient-banner{
+        background: linear-gradient(to left, rgba(0,0,0,0), var(--color1) 20%, var(--color1));
+
+    }
+}
+@media (max-width: 600px) {
+    .gradient-banner{
+        background: linear-gradient(to left, rgba(0,0,0,0), var(--color1) 100%, var(--color1));
+        height: 200px;
+    }
+    .bg-img-banner img{
+        height: 200px;
+        width: 100%;
+    }
+    .container-details-banner{
+        height: 200px;
+    }
+    .container-details-info{
+        margin-left: 40px;
+    }
+    .info-title h1{
+        font-size: 1.5rem;
+    }
+    .info-title div span{
+        font-size: 0.6rem;
+    }
+    .bottom-container{
+        display: none;
+    }
+    .container-details-info .top-container{
+        flex-wrap: nowrap;
+    }
+    .container-details-info .left-container{
+        height: 147px;
+        width: 100px;
+    }
+    .streaming-container{
+        row-gap: 5px;
+        font-size: 0.6rem;
+
+    }
+    .streaming-container .streaming-icons-container img{
+        height: 30px;
+        width: 30px;
+    }
+}

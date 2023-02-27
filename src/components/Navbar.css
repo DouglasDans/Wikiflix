@@ -13,7 +13,10 @@
 }
 
 .header-container .logo{
-    width: 120px;
+    color: var(--color8);
+    text-decoration: none;
+    font-size : 0.8rem;
+    font-weight: 600;
 }
 
 .header-container .menu-title{
@@ -81,3 +84,48 @@
     background-color: var(--red);
     opacity: 1;
 }
+
+
+@media (max-width: 900px) {
+    .header-container{
+        background-color: var(--color3);
+        position: fixed;
+        height: 80px;
+        width: 100vw;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        z-index: 40;
+        padding: 0;
+        border: 0;
+    }
+    .header-container .logo{
+        display: none;
+    }
+    .header-container .menu-title{
+        display: none;
+    }
+    .header-container nav ul{
+        margin-top: 0;
+        left: 0;
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 100%;
+    }
+    .header-container .nav-link-button{
+        display: flex;
+        flex-direction: row;
+        width: auto;
+    }
+    .nav-link-button a {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.7rem;
+    }
+    .header-container{
+        width: 100%;
+    }
+    
+  }

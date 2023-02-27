@@ -67,3 +67,18 @@
     background-color: var(--color3);
     border-radius: 50px;
 }
+
+@media (max-width: 600px) {
+    .search-container{
+        padding: 20px 40px ;
+    }
+    .userImage{
+        display: none;
+    }
+    .navigation-arrow-container form{
+        width: 100%;
+    }
+    .search-input{
+        width: 100%;
+    } 
+}
