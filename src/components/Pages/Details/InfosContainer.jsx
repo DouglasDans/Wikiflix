@@ -1,6 +1,7 @@
 import ListGenres from "./ListGenres";
 import './InfosContainer.css'
 import { Fragment } from "react";
+import apiFunctions from "../../../services/API";
 
 export default function InfosContainer(props){
     const details = props.details
@@ -103,7 +104,7 @@ function Review(props) {
             <Fragment>
                 <div className="review-container">
                     <div className="author-image">
-                        <img src={apiFunctions.API_IMAGE_URL + review.author_details.avatar_path}/>
+                        <img src={"https://image.tmdb.org/t/p/w500/" + review.author_details.avatar_path}/>
                     </div>
                     <div className="review-content">
                         <h4 className="author-name">{review.author}</h4>
