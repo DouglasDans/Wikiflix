@@ -82,11 +82,11 @@
         justify-content: space-between;
     }
     .navigation-arrow-container form{
-        width: 100%;
+        /* width: 100%; */
     }
-    /* .search-input{
+    .search-input{
         width: 100%;
-    }  */
+    } 
 
     
 }
