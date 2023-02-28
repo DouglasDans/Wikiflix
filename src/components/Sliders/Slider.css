@@ -117,3 +117,12 @@
     transform: translateY(100%);
     transition: 200ms;
 }
+
+@media (max-width: 600px) {
+    .carousel-title{
+        padding-left: 20px;
+    }
+    .alice-carousel__wrapper{
+        padding-left: 20px !important;
+    }   
+}

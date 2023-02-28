@@ -70,15 +70,23 @@
 
 @media (max-width: 600px) {
     .search-container{
-        padding: 20px 40px ;
+        padding: 20px ;
+        display: flex;
+        justify-content: space-between;
     }
     .userImage{
         display: none;
     }
+    .navigation-search-container{
+        width: 100%;
+        justify-content: space-between;
+    }
     .navigation-arrow-container form{
         width: 100%;
     }
-    .search-input{
+    /* .search-input{
         width: 100%;
-    } 
+    }  */
+
+    
 }

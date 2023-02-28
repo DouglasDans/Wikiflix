@@ -59,7 +59,7 @@ export default function MediaSlider(props) {
                     touchTracking
                     touchMoveDefaultEvents
                     autoWidth
-                    Height={50}
+                    Height={0}
                     disableDotsControls
                     // infinite
                     paddingLeft={50}
