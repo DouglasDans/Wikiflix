@@ -34,13 +34,12 @@ function Details(){
     if (loading) {
         return("loading")
     } else {
-        console.log(apiData.contentRatings);
         return (
             <Fragment>
                 <Navbar />
                 <main className="container-main">
                     <SearchContainer />
-                    <Banner details={apiData.details} watchProviders={apiData.watchProviders.results.BR} typeContent={apiData.typeContent} ratings={apiData.contentRatings.results}/>
+                    <Banner apiData={apiData}/>
                     <InfosContainer details={apiData.details} videos={apiData.videos} reviews={apiData.reviews.results} typeContent={apiData.typeContent}/>
                     <MediaSlider itens={apiData.recommendations.results} title={"Recomendações para " + (apiData.details.title || apiData.details.name)} coverSize={'small'}/>
                     <MediaSlider itens={apiData.similar.results} title={"Resultados similares"} coverSize={'small'}/>

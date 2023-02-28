@@ -1,7 +1,6 @@
 import ListGenres from "./ListGenres";
 import './InfosContainer.css'
 import { Fragment } from "react";
-import apiFunctions from "../../../services/API";
 
 export default function InfosContainer(props){
     const details = props.details

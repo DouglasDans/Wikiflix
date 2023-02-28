@@ -1,14 +1,18 @@
-import apiFunctions from "../../../services/API";
 import WatchProviders from "./WatchProviders";
 import './Banner.css'
 import { Fragment } from "react";
 
 export default function Banner(props){
-    const details = props.details
-    const watchProviders = props.watchProviders
+    const details = props.apiData.details
+    const watchProviders = props.apiData.watchProviders.results.BR
+    const typeContent = props.apiData.typeContent
+    let ratings = null
+    try {
+        ratings = props.apiData.contentRatings.results 
+    } catch (error) {
+        ratings = null
+    }
     const genres = details.genres || [{name: "Indisponível"}]
-    const typeContent = props.typeContent
-    const ratings = props.ratings || null
     let apiData = {
         title: details.title || details.name || null,
         backdrop_path: details.backdrop_path || null,
@@ -107,17 +111,18 @@ function InfoIcon(props){
                     rating = item.rating
                 }
             })
+            return (
+                <Fragment>
+                    <div className="info-icon">
+                        <div>{rating}</div>
+                        <small>Classificação</small>
+                    </div>
+                </Fragment>
+            )
         } catch (error) {
             
         }
-        return (
-            <Fragment>
-                <div className="info-icon">
-                    <div>{rating}</div>
-                    <small>Classificação</small>
-                </div>
-            </Fragment>
-        )
+        
     }
 
     if (typeContent === "movie") {
