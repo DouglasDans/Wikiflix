@@ -28,3 +28,9 @@ footer .right-side .links a svg:hover{
     fill: var(--color11);
     transition: 200ms;
 }
+
+@media (max-width: 600px) {
+    footer{
+        padding: 40px;
+    }
+}
