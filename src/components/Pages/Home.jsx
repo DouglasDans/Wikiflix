@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import SearchContainer from "../SearchContainer";
 import Footer from "../Footer";
 import getMainHomeData from "../../services/getMainHomeData";
+import BannerSlider from "../Sliders/BannerSlider";
 
 export default function Home(){
     const [apiData, setApiData] = useState([]);
@@ -21,7 +22,8 @@ export default function Home(){
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                <MediaSlider itens={apiData.tendenciaSemana} title={'Em alta nessa semana'} coverSize={'large'}/>
+
+                <BannerSlider  itens={apiData.tendenciaSemana}/>
                 <MediaSlider itens={apiData.movieAtualmenteCinemas} title={'Atualmente nos cinemas'} coverSize={'small'}/>
                 <MediaSlider itens={apiData.tvOnAir} title={'Programas de TV no ar'} coverSize={'small'}/>
                 <MediaSlider itens={apiData.movieEmBreveCinemas} title={'Em breve nos cimenas'} coverSize={'small'}/>

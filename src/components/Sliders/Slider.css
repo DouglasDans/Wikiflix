@@ -1,3 +1,87 @@
+/* MAIN CONTAINER */
+a{
+    text-decoration: none;
+}
+
+.main-slider{
+    border: 1px solid var(--color5);
+    border-radius: 10px;
+    padding: 30px 50px;
+    margin: 0px 50px;
+    height: 280px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-slider .gradient-banner{
+    margin: 0px 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 70%;
+    border-radius: 10px;
+    z-index: -1;
+    background: linear-gradient(to left, rgba(0,0,0,0), var(--color1) 50%, var(--color1));
+}
+
+.main-slider .bg-img-banner img{
+    margin: 0px 50px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 60%;
+    border-radius: 10px;
+    object-fit: cover;
+    opacity: 0.4;
+    right: 0;
+    z-index: -2;
+}
+
+.main-slider .slider-banner-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+}
+
+.main-slider .slider-banner-content .title-banner h1{
+    color: var(--color12);
+    font-weight: 600;
+    font-size: 2rem;
+    max-width: 40vw;
+}
+.main-slider .slider-banner-content .title-banner div{
+    color: var(--color9);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    gap: 0.2rem;
+}
+.main-slider .slider-banner-content h3{
+    font-weight: 400;
+}
+.main-slider .slider-banner-content .info-icon-container{
+    display: flex;
+    justify-content: flex-start;
+    color: var(--color9);
+    font-weight: 600;
+}
+
+.banner-right-arrow{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 50px 100px;
+}
+.banner-left-arrow{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 50px 150px;
+}
 
 .carousel-container{
     display: flex;
@@ -28,13 +112,15 @@
 
 .large-left-arrow{
     position: absolute;
-    top: 35%;
-    left: 2.2rem;
+    top: 0;
+    margin-top: -45px;
+    right: 100px;
 }
 .large-right-arrow{
     position: absolute;
-    top: 35%;
-    right: 2.2rem;
+    top: 0;
+    margin-top: -45px;
+    right: 50px;
 }
 
 .small-left-arrow{
