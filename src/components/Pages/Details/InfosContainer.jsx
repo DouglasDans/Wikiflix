@@ -2,9 +2,10 @@ import ListGenres from "./ListGenres";
 import './InfosContainer.css'
 import { Fragment } from "react";
 import apiFunctions from "../../../services/API";
+import ActorSlider from "../../Sliders/ActorSlider";
 
 export default function InfosContainer(props){
-    const details = props.details
+    const details = props.apiData.details
 
     let apiData = {
         tagline: details.tagline || "",
@@ -49,8 +50,11 @@ export default function InfosContainer(props){
                 <div className="generos-container">
                     <ListGenres data={details.genres}/>
                 </div>
-                <YoutubeVideo videoData={props.videos}/>
-                <Review reviews={props.reviews}/>
+                <YoutubeVideo videoData={props.apiData.videos}/>
+                <ActorSlider credits={props.apiData.credits}/>
+
+
+                <Review reviews={props.apiData.reviews}/>
             </div>
 
             <div className="right-details-container">

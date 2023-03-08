@@ -204,6 +204,57 @@ a{
     transition: 200ms;
 }
 
+
+
+
+/* Slider Ator */
+
+.actor-carousel-container{
+    width: 53vw;
+}
+
+.actor-carousel-container .alice-carousel__stage{
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    align-content: stretch;
+}
+
+.actor-card{
+    background-color: var(--color1);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 145px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.actor-card img{
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+}
+.actor-card div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.actor-card div span{
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+.actor-card div small{
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--color9);
+    text-align: center;
+}
+
+
+
 @media (max-width: 600px) {
     .carousel-title{
         padding-left: 20px;
@@ -212,3 +263,5 @@ a{
         padding-left: 20px !important;
     }   
 }
+
+

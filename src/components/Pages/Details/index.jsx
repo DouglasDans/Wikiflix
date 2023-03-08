@@ -40,7 +40,7 @@ function Details(){
                 <main className="container-main">
                     <SearchContainer />
                     <Banner apiData={apiData}/>
-                    <InfosContainer details={apiData.details} videos={apiData.videos} reviews={apiData.reviews.results} typeContent={apiData.typeContent}/>
+                    <InfosContainer apiData={apiData} typeContent={apiData.typeContent} />
                     <MediaSlider itens={apiData.recommendations.results} title={"Recomendações para " + (apiData.details.title || apiData.details.name)} coverSize={'small'}/>
                     <MediaSlider itens={apiData.similar.results} title={"Resultados similares"} coverSize={'small'}/>
     
