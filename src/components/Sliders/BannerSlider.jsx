@@ -6,6 +6,13 @@ import { Link } from "react-router-dom";
 
 export default function BannerSlider(props){
     let dataType = "tv"
+
+    function validateDate(fstDate = null, lstDate = null) {
+        fstDate = new Date(fstDate).getFullYear()
+        lstDate = lstDate ? " - " + (new Date(lstDate).getFullYear()) : ""
+        return [fstDate, lstDate]
+    }
+
     try {
         let itens = props.itens.map((item) => {
             if (item.title != null) {
@@ -15,6 +22,8 @@ export default function BannerSlider(props){
                 dataType = "tv"
             }
             
+            let date = validateDate(item.details.first_air_date || item.details.release_date, item.details.last_air_date)
+
             return (
                 <Link to={`/${dataType}/${item.id}`}>
                     <section className='main-slider'>
@@ -27,19 +36,26 @@ export default function BannerSlider(props){
                             <div className='title-banner'>
                                 <h1>{item.title || item.name}</h1>
                                 <div>
-                                    <span>2023 - 2023</span>
+                                    <span>{date[0]}{date[1]}</span>
                                     &bull; 
-                                    <span>Ação</span>
+                                    <span>{item.details.genres[0].name}</span>
                                 </div>
                             </div>
-                            <h3>Quando estiver perdido na escuridão, procure a luz.</h3>
+                            <h3>{item.details.tagline}</h3>
                             <div className='info-icon-container'>
                                 <div className="info-icon">
                                     <div>
                                         <span className="material-symbols-rounded">star</span>
-                                        9.8
+                                        {item.details.vote_average.toFixed(1)}
                                     </div>
-                                    <small>14000 avaliações</small>
+                                    <small>{item.details.vote_count} avaliações</small>
+                                </div>
+                                <div className="info-icon">
+                                    <div>
+                                        <span className="material-symbols-rounded">chart_data</span>
+                                        {item.details.popularity.toFixed(0)}
+                                    </div>
+                                    <small>Popularidade</small>
                                 </div>
                             </div>
                         </div>
@@ -93,3 +109,85 @@ export default function BannerSlider(props){
     }
 }
 
+function InfoIcon(props){
+    const typeContent = props.typeContent
+    const apiData = props.apiData
+    
+
+    function Rating(){
+        let rating = "null"
+        try {
+            props.ratings.map((item) => {
+                if (item.iso_3166_1 === "BR") {
+                    rating = item.rating
+                }
+            })
+            return (
+                <Fragment>
+                    <div className="info-icon">
+                        <div>{rating}</div>
+                        <small>Classificação</small>
+                    </div>
+                </Fragment>
+            )
+        } catch (error) {
+            
+        }
+        
+    }
+
+    if (typeContent === "movie") {
+        return (
+            <Fragment>
+                <div className="info-icon">
+                    <div>
+                        {apiData.vote_average.toFixed(1)}
+                        <span className="material-symbols-rounded">star</span>
+                    </div>
+                    <small>{apiData.vote_count} avaliações</small>
+                </div>
+                <div className="info-icon">
+                    <div>{apiData.popularity.toFixed(0)}</div>
+                    <small>Popularidade</small>
+                </div>
+            </Fragment>
+        )
+    } 
+    if (typeContent === "tv") {
+        return (
+            <Fragment>
+                <div className="info-icon">
+                    <div>
+                        <span className="material-symbols-rounded">star</span>
+                        {apiData.vote_average.toFixed(1)}
+                    </div>
+                    <small>{apiData.vote_count} avaliações</small>
+                </div>
+                <Rating/>
+                <div className="info-icon">
+                    <div>
+                        <span className="material-symbols-rounded">chart_data</span>
+                        {apiData.popularity.toFixed(0)}
+                    </div>
+                    <small>Popularidade</small>
+                </div>
+                <div className="info-icon">
+                    <div>
+                        <span className="material-symbols-rounded">live_tv</span>
+                        {apiData.number_of_seasons}
+                    </div>
+                    <small>Temporadas</small>
+                </div>
+                <div className="info-icon">
+                    <div>
+                        <span className="material-symbols-rounded">live_tv</span>
+                        {apiData.number_of_episodes}
+                    </div>
+                    <small>Episódios</small>
+                </div>
+                
+            </Fragment>
+        )
+    }
+    console.log(typeContent);
+}

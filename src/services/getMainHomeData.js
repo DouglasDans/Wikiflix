@@ -2,7 +2,7 @@ import api from "./API";
 
 const requestList = {
     home: [
-        [`/trending/all/week`, 'tendenciaSemana'],
+        [`/trending/all/week`, 'tendenciaSemana', true],
         [`/movie/now_playing`, 'movieAtualmenteCinemas'],
         [`/tv/on_the_air`, 'tvOnAir'],
         [`/movie/upcoming`, 'movieEmBreveCinemas'],
@@ -27,10 +27,20 @@ async function getMainHomeData (page, apiRequests = requestList){
     let obj = {};
 
     const requests = apiRequests[page].map(item => {
-        return api.get(item[0]).then(res => obj[item[1]] = res.data.results)
+        if (item[2] === true) {
+            const itemObj = {};
+            api.get(item[0]).then(res => {
+                itemObj[item[1]] = res.data.results
+                res.data.results.map(data => {
+                    api.get(`/${data.media_type}/${data.id}`).then(res => data.details = res.data)
+                })
+            })
+            return obj = itemObj
+        } else {
+            return api.get(item[0]).then(res => obj[item[1]] = res.data.results)
+        }
     })
     await Promise.all(requests);
-
     return obj
 }
 
