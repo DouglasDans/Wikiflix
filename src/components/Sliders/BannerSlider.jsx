@@ -15,14 +15,17 @@ export default function BannerSlider(props){
 
     try {
         let itens = props.itens.map((item) => {
+            let date
             if (item.title != null) {
                 dataType = "movie"
+                date = validateDate(item.details.release_date)
             }
             if (item.name != null) {
                 dataType = "tv"
+                date = validateDate(item.details.first_air_date, item.details.last_air_date)
             }
             
-            let date = validateDate(item.details.first_air_date ? item.details.first_air_date : item.details.release_date, item.details.last_air_date)
+            
 
             return (
                 <Link to={`/${dataType}/${item.id}`}>
