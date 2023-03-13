@@ -25,8 +25,6 @@ export default function BannerSlider(props){
                 date = validateDate(item.details.first_air_date, item.details.last_air_date)
             }
             
-            
-
             return (
                 <Link to={`/${dataType}/${item.id}`}>
                     <section className='main-slider'>
