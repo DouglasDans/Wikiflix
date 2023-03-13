@@ -22,7 +22,7 @@ export default function BannerSlider(props){
                 dataType = "tv"
             }
             
-            let date = validateDate(item.details.first_air_date || item.details.release_date, item.details.last_air_date)
+            let date = validateDate(item.details.first_air_date ? item.details.first_air_date : item.details.release_date, item.details.last_air_date)
 
             return (
                 <Link to={`/${dataType}/${item.id}`}>
