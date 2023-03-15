@@ -1,7 +1,7 @@
 {
     "theme_color": "#f69435",
     "background_color": "#f69435",
-    "display": "minimal-ui",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "Wikiflix - Pesquise Filmes e S\u00e9ries",
