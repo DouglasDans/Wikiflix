@@ -15,14 +15,12 @@ export default function BannerSlider(props){
 
     try {
         let itens = props.itens.map((item) => {
-            let date
+            console.log(item);
             if (item.title != null) {
                 dataType = "movie"
-                date = validateDate(item.details.release_date)
             }
             if (item.name != null) {
                 dataType = "tv"
-                date = validateDate(item.details.first_air_date, item.details.last_air_date)
             }
             
             return (
@@ -37,9 +35,9 @@ export default function BannerSlider(props){
                             <div className='title-banner'>
                                 <h1>{item.title || item.name}</h1>
                                 <div>
-                                    <span>{date[0]}{date[1]}</span>
+                                    <span>{new Date(item.first_air_date || item.release_date).getFullYear()}</span>
                                     &bull; 
-                                    <span>{item.details.genres[0].name}</span>
+                                    <span>{item.details.genres[0].name || null}</span>
                                 </div>
                             </div>
                             <h3>{item.details.tagline}</h3>
