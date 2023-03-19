@@ -5,24 +5,32 @@ import './Slider.css'
 import { Link } from "react-router-dom";
 
 export default function BannerSlider(props){
-    let dataType = "tv"
-
-    function validateDate(fstDate = null, lstDate = null) {
-        fstDate = new Date(fstDate).getFullYear()
-        lstDate = lstDate ? " - " + (new Date(lstDate).getFullYear()) : ""
-        return [fstDate, lstDate]
-    }
-
     try {
         let itens = props.itens.map((item) => {
-            console.log(item);
+            let dataType 
             if (item.title != null) {
                 dataType = "movie"
             }
             if (item.name != null) {
                 dataType = "tv"
             }
-            
+
+            let genres = [{name: "null"}]
+            let tagline = ""
+            let vote_average = 0
+            let vote_count = 0
+            let popularity = 0
+
+            async function validateData(){
+                tagline = item.details.tagline
+                vote_average = item.details.vote_average
+                vote_count = item.details.vote_count
+                popularity = item.details.vote_count
+                genres = item.details.genres
+            }
+                
+            Promise.all(validateData())
+
             return (
                 <Link to={`/${dataType}/${item.id}`}>
                     <section className='main-slider'>
@@ -37,22 +45,22 @@ export default function BannerSlider(props){
                                 <div>
                                     <span>{new Date(item.first_air_date || item.release_date).getFullYear()}</span>
                                     &bull; 
-                                    <span>{item.details.genres[0].name || null}</span>
+                                    <span>{genres[0].name || null}</span>
                                 </div>
                             </div>
-                            <h3>{item.details.tagline}</h3>
+                            <h3>{tagline}</h3>
                             <div className='info-icon-container'>
                                 <div className="info-icon">
                                     <div>
                                         <span className="material-symbols-rounded">star</span>
-                                        {item.details.vote_average.toFixed(1)}
+                                        {vote_average.toFixed(1)}
                                     </div>
-                                    <small>{item.details.vote_count} avaliações</small>
+                                    <small>{vote_count} avaliações</small>
                                 </div>
                                 <div className="info-icon">
                                     <div>
                                         <span className="material-symbols-rounded">chart_data</span>
-                                        {item.details.popularity.toFixed(0)}
+                                        {popularity.toFixed(0)}
                                     </div>
                                     <small>Popularidade</small>
                                 </div>

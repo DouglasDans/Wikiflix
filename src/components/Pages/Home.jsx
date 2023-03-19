@@ -14,7 +14,7 @@ export default function Home(){
         async function getData() {
             getMainHomeData("home").then(res => {setApiData(res); setLoading(false)})
         }
-        getData()
+        Promise.all(getData())
     },[loading]);
 
     return(
