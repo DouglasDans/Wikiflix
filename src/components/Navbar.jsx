@@ -6,9 +6,8 @@ export default function Navbar() {
 	const logo = "/img/wikiflix_logo.svg"
 	return (
 		<header className="header-container">
-			<NavLink to={'/'} style={{color: "var(--color8)", textDecoration: "none", fontSize : "0.8rem", fontWeight: "600"}}>
+			<NavLink to={'/'} className="logo">
 				<img src={logo}/>
-				<small>BETA</small>
 			</NavLink>
 			<ContainerLinks />
 		</header>
