@@ -26,9 +26,9 @@ export default function SearchContainer(){
                         <button onClick={backPage} className="arrow-left">
                             <span class="material-symbols-rounded">arrow_back_ios_new</span>
                         </button>
-                        <button onclick={nextPage} className="arrow-right">
+                        {/* <button onclick={nextPage} className="arrow-right">
                             <span class="material-symbols-rounded">arrow_forward_ios</span>
-                        </button>
+                        </button> */}
                     </div>
                     <form onSubmit={handleSubmit} id="search-form" method="get">
                         <span className="material-symbols-rounded search-icon">
@@ -39,7 +39,7 @@ export default function SearchContainer(){
                 </div>
                 
                 <div className="user-container">
-                    <section className="userImage"></section>
+                    {/* <section className="userImage"></section> */}
                 </div>
             </header>
         )

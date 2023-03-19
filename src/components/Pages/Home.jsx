@@ -22,7 +22,8 @@ export default function Home(){
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                <BannerSlider  itens={apiData.tendenciaSemana}/>
+                {/* <BannerSlider  itens={apiData.tendenciaSemana}/> */}
+                <MediaSlider itens={apiData.tendenciaSemana} title={'Tendência da semana'} coverSize={'large'}/>
                 <MediaSlider itens={apiData.movieAtualmenteCinemas} title={'Atualmente nos cinemas'} coverSize={'small'}/>
                 <MediaSlider itens={apiData.tvOnAir} title={'Programas de TV no ar'} coverSize={'small'}/>
                 <MediaSlider itens={apiData.movieEmBreveCinemas} title={'Em breve nos cimenas'} coverSize={'small'}/>

@@ -8,7 +8,6 @@ export default function Navbar() {
 		<header className="header-container">
 			<NavLink to={'/'} className="logo">
 				<img src={logo}/>
-				<small>BETA</small>
 			</NavLink>
 			<ContainerLinks />
 		</header>
