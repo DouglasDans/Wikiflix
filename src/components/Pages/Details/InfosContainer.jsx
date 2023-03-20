@@ -51,7 +51,7 @@ export default function InfosContainer(props){
                     <ListGenres data={details.genres}/>
                 </div>
                 <YoutubeVideo videoData={props.apiData.videos}/>
-                {/* <ActorSlider credits={props.apiData.credits}/> */}
+                <ActorSlider credits={props.apiData.credits}/>
 
 
                 <Review reviews={props.apiData.reviews}/>
