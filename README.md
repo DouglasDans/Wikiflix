@@ -4,7 +4,7 @@
   ## Wikiflix
 </div>
 
-O Wikiflix é um projeto desenvolvido para fornecer informações sobre filmes e séries de forma fácil, intuitiva e com uma interface responsiva e atrativa. Com ele, é possível pesquisar facilmente por filmes e programas de TV e encontrar informações importantes sobre eles. O Wikiflix também suporta PWA (Progressive Web App), o que significa que ele pode ser instalado como um aplicativo no seu celular, permitindo acesso rápido e fácil às informações que você precisa.
+Wikiflix é um projeto que exibe informações de filmes e programas de TV em uma interface bonita, intuitiva e responsiva. Pesquise filmes e programas de TV e encontre facilmente informações importantes sobre eles.
 
 
 Feito em **React.JS** e utilizando a **TMDB API** por meio da biblioteca de **Node.JS Axios.**
