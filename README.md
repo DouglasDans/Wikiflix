@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://repository-images.githubusercontent.com/524824562/4c2c1be3-541c-4e35-b35a-49b67f46ad4c" width="640px" height="360px">
+  <img src="https://repository-images.githubusercontent.com/524824562/788ac738-b73a-4271-9f6a-8b0980a6c2bb" width="640px" height="360px">
  
   ## Wikiflix
 </div>
