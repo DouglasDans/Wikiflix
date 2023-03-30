@@ -1,15 +1,17 @@
 .details-container{
-    margin: 30px 50px;
-    display: flex;
+    margin: 30px 30px 50px 50px;
+    display:grid;
+    justify-content: space-between;
+    grid-template-columns: calc(100% - 325px) 300px;
     gap: 1.3rem;
     align-items: start;
-    
 }
 
 .left-details-container{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%
 }
 
 .left-details-container p{
@@ -86,10 +88,13 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
     .details-container{
         display: flex;
         flex-direction: column;
+    }
+    .right-details-container{
+        width: 100%;
     }
 }
 @media (max-width: 600px) {

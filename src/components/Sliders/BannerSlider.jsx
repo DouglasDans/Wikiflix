@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './Slider.css'
@@ -20,18 +20,6 @@ export default function BannerSlider(props){
             let vote_count = item.details.vote_count !== undefined ? item.details.vote_count : 0;
             let popularity = item.details.popularity !== undefined ? item.details.popularity : 0;
             let genres = item.details.genres !== undefined ? item.details.genres : [{ name: "null" }];
-
-            // async function validateData() {
-            //     tagline = item.details.tagline || "";
-            //     vote_average = item.details.vote_average || 0;
-            //     vote_count = item.details.vote_count || 0;
-            //     popularity = item.details.popularity || 0;
-            //     genres = item.details.genres || [{ name: "null" }];
-            //     // retorna uma promessa que resolve imediatamente
-                
-            //   }
-                
-            // Promise.resolve(validateData())
 
             return (
                 <Link to={`/${dataType}/${item.id}`}>

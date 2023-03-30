@@ -212,7 +212,8 @@ a{
 /* Slider Ator */
 
 .actor-carousel-container{
-    width: 53vw;
+    
+    width: 100%;
 }
 
 .actor-carousel-container .alice-carousel__stage{
@@ -255,6 +256,12 @@ a{
     text-align: center;
 }
 
+@media (max-width: 130px) {
+    .actor-carousel-container{
+        width: 100%;
+    }
+    
+}
 
 
 @media (max-width: 600px) {
