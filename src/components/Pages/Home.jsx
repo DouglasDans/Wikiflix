@@ -12,9 +12,9 @@ export default function Home(){
 
     useEffect(() => {
         async function getData() {
-            getMainHomeData("home").then(res => {setApiData(res); setLoading(false)})
+            await getMainHomeData("home").then(res => {setApiData(res); setLoading(false)})
         }
-        Promise.all(getData())
+        Promise.resolve(getData())
     },[loading]);
 
     return(

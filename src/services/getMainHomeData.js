@@ -28,16 +28,17 @@ async function getMainHomeData (page, apiRequests = requestList){
 
     const requests = apiRequests[page].map(item => {
         if (item[2] === true) {
-            const itemObj = {};
-            Promise.all(api.get(item[0]).then(res => {
-                itemObj[item[1]] = res.data.results
-                res.data.results.map(data => {
-                    api.get(`/${data.media_type}/${data.id}`).then(res => data.details = res.data)
-                })
-            }))
-            return obj = itemObj
+            return api.get(item[0]).then(res => {
+                obj[item[1]] = res.data.results;
+                const detailsRequests = obj[item[1]].map(data => {
+                    return api.get(`/${data.media_type}/${data.id}`).then(res => data.details = res.data);
+                });
+                return Promise.all(detailsRequests).then(() => {
+                    return obj;
+                });
+            });
         } 
-        return api.get(item[0]).then(res => obj[item[1]] = res.data.results)
+        return api.get(item[0]).then(res => {obj[item[1]] = res.data.results;});
     })
     await Promise.all(requests);
     return obj

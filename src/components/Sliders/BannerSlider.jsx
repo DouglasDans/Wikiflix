@@ -15,21 +15,23 @@ export default function BannerSlider(props){
                 dataType = "tv"
             }
 
-            let genres = [{name: "null"}]
-            let tagline = ""
-            let vote_average = 0
-            let vote_count = 0
-            let popularity = 0
+            let tagline = item.details.tagline !== undefined ? item.details.tagline : "";
+            let vote_average = item.details.vote_average !== undefined ? item.details.vote_average : 0;
+            let vote_count = item.details.vote_count !== undefined ? item.details.vote_count : 0;
+            let popularity = item.details.popularity !== undefined ? item.details.popularity : 0;
+            let genres = item.details.genres !== undefined ? item.details.genres : [{ name: "null" }];
 
-            async function validateData(){
-                tagline = item.details.tagline
-                vote_average = item.details.vote_average
-                vote_count = item.details.vote_count
-                popularity = item.details.vote_count
-                genres = item.details.genres
-            }
+            // async function validateData() {
+            //     tagline = item.details.tagline || "";
+            //     vote_average = item.details.vote_average || 0;
+            //     vote_count = item.details.vote_count || 0;
+            //     popularity = item.details.popularity || 0;
+            //     genres = item.details.genres || [{ name: "null" }];
+            //     // retorna uma promessa que resolve imediatamente
                 
-            Promise.all(validateData())
+            //   }
+                
+            // Promise.resolve(validateData())
 
             return (
                 <Link to={`/${dataType}/${item.id}`}>
