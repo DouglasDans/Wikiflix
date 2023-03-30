@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './Slider.css'
@@ -15,21 +15,11 @@ export default function BannerSlider(props){
                 dataType = "tv"
             }
 
-            let genres = [{name: "null"}]
-            let tagline = ""
-            let vote_average = 0
-            let vote_count = 0
-            let popularity = 0
-
-            async function validateData(){
-                tagline = item.details.tagline
-                vote_average = item.details.vote_average
-                vote_count = item.details.vote_count
-                popularity = item.details.vote_count
-                genres = item.details.genres
-            }
-                
-            Promise.all(validateData())
+            let tagline = item.details.tagline !== undefined ? item.details.tagline : "";
+            let vote_average = item.details.vote_average !== undefined ? item.details.vote_average : 0;
+            let vote_count = item.details.vote_count !== undefined ? item.details.vote_count : 0;
+            let popularity = item.details.popularity !== undefined ? item.details.popularity : 0;
+            let genres = item.details.genres !== undefined ? item.details.genres : [{ name: "null" }];
 
             return (
                 <Link to={`/${dataType}/${item.id}`}>

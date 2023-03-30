@@ -12,9 +12,9 @@ export default function Home(){
 
     useEffect(() => {
         async function getData() {
-            getMainHomeData("home").then(res => {setApiData(res); setLoading(false)})
+            await getMainHomeData("home").then(res => {setApiData(res); setLoading(false)})
         }
-        Promise.all(getData())
+        Promise.resolve(getData())
     },[loading]);
 
     return(
@@ -22,8 +22,7 @@ export default function Home(){
             <Navbar />
             <main className="container-main">
                 <SearchContainer/>
-                {/* <BannerSlider  itens={apiData.tendenciaSemana}/> */}
-                <MediaSlider itens={apiData.tendenciaSemana} title={'Tendência da semana'} coverSize={'large'}/>
+                <BannerSlider  itens={apiData.tendenciaSemana}/>
                 <MediaSlider itens={apiData.movieAtualmenteCinemas} title={'Atualmente nos cinemas'} coverSize={'small'}/>
                 <MediaSlider itens={apiData.tvOnAir} title={'Programas de TV no ar'} coverSize={'small'}/>
                 <MediaSlider itens={apiData.movieEmBreveCinemas} title={'Em breve nos cimenas'} coverSize={'small'}/>
