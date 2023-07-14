@@ -32,7 +32,14 @@ function Details(){
     },[id]);
 
     if (loading) {
-        return("loading")
+        return(
+            <Fragment>
+                <Navbar />
+                <main className="container-main">
+                    loading
+                </main>
+            </Fragment>
+        )
     } else {
         return (
             <Fragment>
