@@ -25,18 +25,20 @@ function Details(){
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true)
         async function getData() {
             getDetails(id, typeContent).then(res => {setAPIData(res);setLoading(false)})
         }
         getData()
     },[id]);
-
+    
     if (loading) {
         return(
             <Fragment>
                 <Navbar />
-                <main className="container-main">
-                    loading
+                <main className="container-loading">
+                    <img src="/img/compact_wikiflix_logo.png" height={"50px"}/>
+                    {/* <h4>Carregando...</h4> */}
                 </main>
             </Fragment>
         )

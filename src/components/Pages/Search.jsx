@@ -20,15 +20,28 @@ export default function Search(){
         getData()
     },[query]);
 
-    return(
-        <Fragment>
-            <Navbar/>
-            <main className="container-main">
-                <SearchContainer/>
-                <MediaSlider itens={apiData.movieList} title={'Filmes Relacionados'} coverSize={'small'}/>
-                <MediaSlider itens={apiData.tvList} title={'Programas de TV Relacionados'} coverSize={'small'}/>
-                <Footer/>
-            </main>
-        </Fragment>
-    )
+    if (loading) {
+        return(
+            <Fragment>
+                <Navbar />
+                <main className="container-loading">
+                    <img src="/img/compact_wikiflix_logo.png" height={"50px"}/>
+                    {/* <h4>Carregando...</h4> */}
+                </main>
+            </Fragment>
+        )
+    } else {
+        return(
+            <Fragment>
+                <Navbar/>
+                <main className="container-main">
+                    <SearchContainer/>
+                    <MediaSlider itens={apiData.movieList} title={'Filmes Relacionados'} coverSize={'small'}/>
+                    <MediaSlider itens={apiData.tvList} title={'Programas de TV Relacionados'} coverSize={'small'}/>
+                    <Footer/>
+                </main>
+            </Fragment>
+        )
+    }
+
 }

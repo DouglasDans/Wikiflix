@@ -14,22 +14,36 @@ function Filmes() {
             getMainHomeData("movie").then(res => {setApiData(res); setLoading(false)})
         }
         getData()
-    },[]);
+    },[loading]);
 
-    return(
-        <Fragment>
-            <Navbar />
-            <main className="container-main">
-                <SearchContainer/>
-                <MediaSlider itens={apiData.moviePopular} title={'Em Alta Nessa Semana'} coverSize={'large'}/>
-                <MediaSlider itens={apiData.movieAtualmenteCinemas} title={'Atualmente Nos Cinemas'} coverSize={'small'}/>
-                <MediaSlider itens={apiData.movieEmBreveCinemas} title={'Futuros Lançamentos'} coverSize={'small'}/>
-                <MediaSlider itens={apiData.movieTopRated} title={'Melhores Avaliados'} coverSize={'large'}/>
-                {/* <Carousel itens={movies} title={'Melhores filmes de 90min'} coverType={'small'}/> */}
-                <Footer/>
-            </main>
-        </Fragment>
-    )
+    if (loading) {
+        return(
+            <Fragment>
+                <Navbar />
+                <main className="container-loading">
+                    <img src="/img/compact_wikiflix_logo.png" height={"50px"}/>
+                    {/* <h4>Carregando...</h4> */}
+                </main>
+            </Fragment>
+        )
+    } else {
+
+        return(
+            <Fragment>
+                <Navbar />
+                <main className="container-main">
+                    <SearchContainer/>
+                    <MediaSlider itens={apiData.moviePopular} title={'Em Alta Nessa Semana'} coverSize={'large'}/>
+                    <MediaSlider itens={apiData.movieAtualmenteCinemas} title={'Atualmente Nos Cinemas'} coverSize={'small'}/>
+                    <MediaSlider itens={apiData.movieEmBreveCinemas} title={'Futuros Lançamentos'} coverSize={'small'}/>
+                    <MediaSlider itens={apiData.movieTopRated} title={'Melhores Avaliados'} coverSize={'large'}/>
+                    {/* <Carousel itens={movies} title={'Melhores filmes de 90min'} coverType={'small'}/> */}
+                    <Footer/>
+                </main>
+            </Fragment>
+        )
+    }
+
 }
 
 export default Filmes
