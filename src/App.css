@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 900px) {
-    .container-main {
+    .container-main, .container-loading{
         margin-left: 0;
         width: auto;
         margin-bottom: 80px;
