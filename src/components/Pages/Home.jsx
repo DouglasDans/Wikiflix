@@ -17,7 +17,7 @@ export default function Home(){
         Promise.resolve(getData())
     },[loading]);
 
-    if (true) {
+    if (loading) {
         return(
             <Fragment>
                 <Navbar />
