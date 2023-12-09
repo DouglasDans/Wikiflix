@@ -4,6 +4,7 @@ import './Banner.css'
 
 import InfoMain from './InfoMain/InfoMain';
 import WatchProviders from './WatchProviders';
+import BannerIcons from './BannerIcons/BannerIcons';
 
 export default function Banner({details, watchProviders, typeContent}) {
 
@@ -31,7 +32,7 @@ export default function Banner({details, watchProviders, typeContent}) {
                            
                         </div>
                         <div className="infos-icon-container">
-                           {/* <InfoIcon apiData={apiData} typeContent={typeContent} ratings={ratings}/> */}
+                           <BannerIcons details={details} typeContent={typeContent}/>
                         </div>
                   </div>
                </div>
