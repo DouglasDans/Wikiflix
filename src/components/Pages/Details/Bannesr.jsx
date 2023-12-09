@@ -2,9 +2,9 @@ import WatchProviders from "./Banner/WatchProviders";
 import { Fragment } from "react";
 import Banner from "./Banner/Banner";
 
-export default function Bannessr({details}){
+export default function Bannessr({details, typeContent}){
 
-    console.log(details);
+    console.log(typeContent);
 
     return (
         <Banner/>

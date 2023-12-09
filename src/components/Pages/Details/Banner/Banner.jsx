@@ -2,12 +2,10 @@ import React from 'react'
 
 import './Banner.css'
 
-import InfoMain from './InfoTitle/InfoMain';
+import InfoMain from './InfoMain/InfoMain';
 import WatchProviders from './WatchProviders';
 
-export default function Banner({details, watchProviders}) {
-
-   console.log(details);
+export default function Banner({details, watchProviders, typeContent}) {
 
    try {
       return (
@@ -24,7 +22,7 @@ export default function Banner({details, watchProviders}) {
                            <img src={"https://image.tmdb.org/t/p/w500/" + details.poster_path}/>
                         </div>
                         <div className="right-container">
-                           <InfoMain {...details}/>      
+                           <InfoMain {...details} typeContent={typeContent}/>      
                            <WatchProviders {...watchProviders.results.BR}/>
                         </div>
                   </div>

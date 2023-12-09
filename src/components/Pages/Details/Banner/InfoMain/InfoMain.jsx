@@ -2,12 +2,10 @@ import React, { Fragment } from 'react'
 import convertStringToDate from '../../../../../util/convertStringToDate';
 
 export default function InfoMain(details){
-      console.log(details);
-
-      const typeContent = "tv";
+      console.log(details.typeContent);
 
       try {
-         if (typeContent === "movie") {
+         if (details.typeContent === "movie") {
             return(
                <Fragment>
                      <div className="info-title">
@@ -30,7 +28,7 @@ export default function InfoMain(details){
             )
          }
          
-         if (typeContent === "tv") {
+         if (details.typeContent === "tv") {
             return(
                <Fragment>
                      <div className="info-title">
