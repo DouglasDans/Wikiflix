@@ -30,8 +30,6 @@ export default function Banner(props){
         created_by: details.created_by || null,
         rating: details.rating
     }
-
-    console.log(typeContent);
     
     function InfoTitle(){
         if (typeContent === "movie") {
@@ -39,7 +37,7 @@ export default function Banner(props){
                 <Fragment>
                     <div className="info-title">
                         <h1>{apiData.title}</h1>
-                        <div>{console.log(apiData.date)}
+                        <div>
                             <span>{apiData.date.getFullYear()}</span>
                             &bull; 
                             <span>{apiData.runtime} minutos</span>
@@ -55,7 +53,7 @@ export default function Banner(props){
                 <Fragment>
                     <div className="info-title">
                         <h1>{apiData.title}</h1>
-                        <div>{console.log(apiData.date)}
+                        <div>
                             <span>{apiData.tv_first_date.getFullYear()} - {apiData.tv_last_date.getFullYear()}</span>
                             &bull; 
                             <span>{genres[0].name}</span>
@@ -178,5 +176,4 @@ function InfoIcon(props){
             </Fragment>
         )
     }
-    console.log(typeContent);
 }

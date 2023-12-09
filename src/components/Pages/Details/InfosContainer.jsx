@@ -87,7 +87,6 @@ export default function InfosContainer(props){
 function YoutubeVideo(props) {
     try {
         let video = props.videoData.results[0]
-        console.log(video);
         return (
             <Fragment>
                 <iframe className="youtube-video" src={`https://www.youtube.com/embed/${video.key}`}title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; fullscreen; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -102,7 +101,6 @@ function YoutubeVideo(props) {
 function Review(props) {
     try {
         let review = props.reviews.results[0]
-        console.log(review);
 
         return (
             <Fragment>
