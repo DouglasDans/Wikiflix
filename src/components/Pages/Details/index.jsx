@@ -2,11 +2,11 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../../Navbar";
 import SearchContainer from "../../SearchContainer";
-import Banner from "./Banner"
 import InfosContainer from "./InfosContainer";
 import MediaSlider from "../../Sliders/MediaSlider";
 import Footer from "../../Footer";
 import getDetails from "../../../services/getDetailsData";
+import Banner from "./Banner/Banner";
 
 function Details(){
     window.scrollTo(0, 0);
@@ -48,7 +48,7 @@ function Details(){
                 <Navbar />
                 <main className="container-main">
                     <SearchContainer />
-                    <Banner apiData={apiData}/>
+                    <Banner {...apiData}/>
                     <InfosContainer apiData={apiData} typeContent={apiData.typeContent} />
                     <MediaSlider itens={apiData.recommendations.results} title={"Recomendações para " + (apiData.details.title || apiData.details.name)} coverSize={'small'}/>
                     <MediaSlider itens={apiData.similar.results} title={"Resultados similares"} coverSize={'small'}/>
