@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 
-export default function WatchProviders(props){
-    let watchProviders = props.data
+export default function WatchProviders(watchProviders){
 
     try {
         if (watchProviders.flatrate === undefined) {

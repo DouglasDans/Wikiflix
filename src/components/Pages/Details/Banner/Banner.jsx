@@ -25,7 +25,7 @@ export default function Banner({details, watchProviders}) {
                         </div>
                         <div className="right-container">
                            <InfoMain {...details}/>      
-                           {/* <WatchProviders data={watchProviders} details={details}/> */}
+                           <WatchProviders {...watchProviders.results.BR}/>
                         </div>
                   </div>
                   <div className="bottom-container">
