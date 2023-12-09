@@ -21,7 +21,7 @@ function ContainerLinks(){
 			<small className="menu-title">Menu</small>
 			<ul>
 				<li className="nav-link-button">
-					<LinkProps url="/" iconName="home" linkName="Bombando" />
+					<LinkProps url="/" iconName="whatshot" linkName="Bombando" />
 				</li>
 				<li className="nav-link-button">
 					<LinkProps url="/filmes" iconName="theaters" linkName="Filmes" />
@@ -42,7 +42,7 @@ function LinkProps(props){
 	return (
 		<Fragment>
 			<section className="indicator-nav"></section>
-			<NavLink to={props.url}>
+			<NavLink to={props.url} className={"nav-link-props"}>
 				<span className="material-symbols-rounded">
 					{props.iconName}
 				</span> 

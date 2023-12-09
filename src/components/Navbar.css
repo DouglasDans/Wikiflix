@@ -43,7 +43,6 @@
 }
 
 
-
 .header-container .nav-link-button{
     list-style: none;
     padding: 0.6rem;
@@ -51,6 +50,15 @@
     width: 100%;
     border-radius: 10px;
 }
+
+.header-container .nav-link-button .nav-link-props.active .material-symbols-rounded{
+    color: var(--red);
+}
+.header-container .nav-link-button .nav-link-props.active .titleLink{
+    color: var(--color12);
+}
+
+
 .nav-link-button a{
     text-decoration: none;
     display: flex;
