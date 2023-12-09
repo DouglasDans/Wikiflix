@@ -54,6 +54,7 @@
 .header-container .nav-link-button .nav-link-props.active .material-symbols-rounded{
     color: var(--red);
 }
+
 .header-container .nav-link-button .nav-link-props.active .titleLink{
     color: var(--color12);
 }

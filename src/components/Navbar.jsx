@@ -41,7 +41,7 @@ function ContainerLinks(){
 function LinkProps(props){
 	return (
 		<Fragment>
-			<section className="indicator-nav"></section>
+			<span className="indicator-nav">a</span>
 			<NavLink to={props.url} className={"nav-link-props"}>
 				<span className="material-symbols-rounded">
 					{props.iconName}
