@@ -12,7 +12,7 @@ export default function InfoMain(details){
                         <h1>{details.title}</h1>
                         <div>
                            <span>
-                              {details.release_date ? convertStringToDate(details.release_date).getFullYear() : "aui"}
+                              {details.release_date && convertStringToDate(details.release_date).getFullYear()}
                            </span>
                            
                            {details.release_date && <>&bull;</>}

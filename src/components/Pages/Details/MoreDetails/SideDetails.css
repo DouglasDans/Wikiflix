@@ -1,0 +1,10 @@
+.info-line{
+   display: flex;
+   flex-direction: column;
+   font-size: 0.9rem;
+   gap: 0.3rem;
+}
+.info-line .titulo{
+   color: var(--color8);
+   font-weight: 600;
+}

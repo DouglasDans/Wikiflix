@@ -1,4 +1,4 @@
-import ListGenres from "./ListGenres";
+import ListGenres from "./MoreDetails/ListGenres";
 import './InfosContainer.css'
 import { Fragment } from "react";
 import apiFunctions from "../../../services/API";
@@ -47,9 +47,9 @@ export default function InfosContainer(props){
             <div className="left-details-container">
                 <h2>{apiData.tagline}</h2>
                 <p>{apiData.overview}</p>
-                <div className="generos-container">
+                {/* <div className="generos-container">
                     <ListGenres data={details.genres}/>
-                </div>
+                </div> */}
                 <YoutubeVideo videoData={props.apiData.videos}/>
                 <ActorSlider credits={props.apiData.credits}/>
 
