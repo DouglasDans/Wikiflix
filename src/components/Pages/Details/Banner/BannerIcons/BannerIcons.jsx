@@ -26,52 +26,55 @@ export default function BannerIcons({details, typeContent}){
       if (typeContent === "movie") {
          return (
              <Fragment>
-                 <div className="info-icon">
-                     <div>
-                         {details.vote_average.toFixed(1)}
-                         <span className="material-symbols-rounded">star</span>
-                     </div>
-                     <small>{details.vote_count} avaliações</small>
-                 </div>
-                 <div className="info-icon">
-                     <div>{details.popularity.toFixed(0)}</div>
-                     <small>Popularidade</small>
-                 </div>
+                 {details.vote_average && <div className="info-icon">
+                    <div>
+                        <span className="material-symbols-rounded">star</span>
+                        {details.vote_average.toFixed(1)}
+                    </div>
+                    <small>{details.vote_count} avaliações</small>
+                </div>}
+
+                {details.popularity && <div className="info-icon">
+                    <div>{details.popularity.toFixed(0)}</div>
+                    <small>Popularidade</small>
+                </div>}
              </Fragment>
          )
      } 
      if (typeContent === "tv") {
          return (
              <Fragment>
-                  <div className="info-icon">
-                     <div>
-                         <span className="material-symbols-rounded">star</span>
-                         {details.vote_average.toFixed(1)}
-                     </div>
-                     <small>{details.vote_count} avaliações</small>
-                  </div>
-                  <Rating/>
-                  <div className="info-icon">
-                     <div>
-                         <span className="material-symbols-rounded">chart_data</span>
-                         {details.popularity.toFixed(0)}
-                     </div>
-                     <small>Popularidade</small>
-                  </div>
-                  <div className="info-icon">
-                     <div>
-                         <span className="material-symbols-rounded">live_tv</span>
-                         {details.number_of_seasons}
-                     </div>
-                     <small>Temporadas</small>
-                  </div>
-                  <div className="info-icon">
-                     <div>
-                         <span className="material-symbols-rounded">live_tv</span>
-                         {details.number_of_episodes}
-                     </div>
-                     <small>Episódios</small>
-                  </div>
+                {details.vote_average && <div className="info-icon">
+                    <div>
+                        <span className="material-symbols-rounded">star</span>
+                        {details.vote_average.toFixed(1)}
+                    </div>
+                    <small>{details.vote_count} avaliações</small>
+                </div>}
+
+                <Rating/>
+
+                {details.popularity && <div className="info-icon">
+                    <div>{details.popularity.toFixed(0)}</div>
+                    <small>Popularidade</small>
+                </div>}
+
+                {details.number_of_seasons && <div className="info-icon">
+                    <div>
+                        <span className="material-symbols-rounded">live_tv</span>
+                        {details.number_of_seasons}
+                    </div>
+                    <small>Temporadas</small>
+                </div>}
+                  
+                {details.number_of_episodes && <div className="info-icon">
+                    <div>
+                        <span className="material-symbols-rounded">live_tv</span>
+                        {details.number_of_episodes}
+                    </div>
+                    <small>Episódios</small>
+                </div>}
+                  
              </Fragment>
          )
       }
