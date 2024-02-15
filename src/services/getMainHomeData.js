@@ -1,30 +1,47 @@
-import api from "./API";
+import ApiHandler from "./ApiHandler";
+
+
+const DATA_KEYS = {
+    TRENDING: 'tendenciaSemana',
+    NOW_PLAYING: 'movieAtualmenteCinemas',
+    UPCOMING: 'movieEmBreveCinemas',
+    TOP_RATED: 'movieTopRated',
+    POPULAR: 'moviePopular',
+    TV_POPULAR: 'tvPopular',
+    TV_ON_AIR: 'tvOnAir',
+    TV_LATEST: 'tvLatest',
+    TV_TOP_RATED: 'tvTopRated',
+};
 
 const requestList = {
     home: [
-        [`/trending/all/week`, 'tendenciaSemana', true],
-        [`/movie/now_playing`, 'movieAtualmenteCinemas'],
-        [`/tv/on_the_air`, 'tvOnAir'],
-        [`/movie/upcoming`, 'movieEmBreveCinemas'],
-        [`/movie/top_rated`, 'movieTopRated'],
+        [`/trending/all/week`, DATA_KEYS.TRENDING, true],
+        [`/movie/now_playing`, DATA_KEYS.NOW_PLAYING],
+        [`/tv/on_the_air`, DATA_KEYS.TV_ON_AIR],
+        [`/movie/upcoming`, DATA_KEYS.UPCOMING],
+        [`/movie/top_rated`, DATA_KEYS.TOP_RATED],
     ],
     movie: [
-        [`/trending/movie/week`, 'tendenciaSemana'],
-        [`/movie/now_playing`, 'movieAtualmenteCinemas'],
-        [`/movie/popular`, 'moviePopular'],
-        [`/movie/upcoming`, 'movieEmBreveCinemas'],
-        [`/movie/top_rated`, 'movieTopRated'],
+        [`/trending/movie/week`, DATA_KEYS.TRENDING],
+        [`/movie/now_playing`, DATA_KEYS.NOW_PLAYING],
+        [`/movie/popular`, DATA_KEYS.POPULAR],
+        [`/movie/upcoming`, DATA_KEYS.UPCOMING],
+        [`/movie/top_rated`, DATA_KEYS.TOP_RATED],
     ],
     tv: [
-        [`/trending/tv/week`, 'tvPopular'],
-        [`/tv/on_the_air`, 'tvOnAir'],
-        [`/tv/latest`, 'tvLatest'],
-        [`/tv/top_rated`, 'tvTopRated'],
+        [`/trending/tv/week`, DATA_KEYS.TV_POPULAR],
+        [`/tv/on_the_air`, DATA_KEYS.TV_ON_AIR],
+        [`/tv/latest`, DATA_KEYS.TV_LATEST],
+        [`/tv/top_rated`, DATA_KEYS.TV_TOP_RATED],
     ]
-}
+};
+
+
 
 async function getMainHomeData (page, apiRequests = requestList){
     let obj = {};
+
+    const api = new ApiHandler().use()
 
     const requests = apiRequests[page].map(item => {
         if (item[2] === true) {
