@@ -70,7 +70,7 @@ function Details(){
                             <Review {...apiData}/>
                         </div>
                         <div className="right-details-container">
-                            <SideDetails {...apiData}/> 
+                            <SideDetails {...apiData} typeContent={typeContent}/> 
                         </div>
                     </div>
 
