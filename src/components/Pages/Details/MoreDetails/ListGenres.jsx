@@ -1,4 +1,5 @@
 import { Fragment } from "react"
+import './ListGenres.css'
 
 export default function ListGenres({details}){
     try {
@@ -6,7 +7,7 @@ export default function ListGenres({details}){
             <div className="generos-container">
                 {details.genres.map((item) => {
                     return(
-                        <span>{item.name}</span>
+                        <span className="genre-span">{item.name}</span>
                         )
                     })}
             </div>
