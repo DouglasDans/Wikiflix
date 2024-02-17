@@ -1,0 +1,33 @@
+.reviewContainer {
+   background-color: var(--color1);
+   border-radius: 10px;
+   padding: 25px;
+   display: flex;
+   gap: 1.3rem;
+}
+
+.reviewContainer .authorImage .image{
+   height: 60px;
+   width: 60px;
+   border-radius: 100%;
+}
+
+.reviewContainer .authorImage .placeholder{
+   font-size: 60px;
+}
+
+.reviewContainer .reviewContent {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}
+
+.reviewContainer .authorName{
+   font-weight: 500;
+   font-size: 0.9rem;
+}
+
+.reviewContainer .reviewText{
+   font-weight: 400;
+   font-size: 0.9rem;
+}
