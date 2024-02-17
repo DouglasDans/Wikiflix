@@ -1,0 +1,15 @@
+.descricaoContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}
+
+.tagline {
+   font-weight:500;
+   font-size: 1.3rem;
+}
+
+.descricao {
+   font-weight: 400;
+   font-size: 1rem;
+}
