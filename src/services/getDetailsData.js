@@ -1,4 +1,4 @@
-import api from "./API";
+import ApiHandler from "./ApiHandler";
 
 const requestList = [
     ['', 'details'],
@@ -14,18 +14,15 @@ const requestList = [
     ['/watch/providers', 'watchProviders'],
 ]
 
-async function  getDetails (id, typeContent, apiRequests = requestList){
-    const obj = {};
+async function  getDetails(id, typeContent, apiRequests = requestList){
+    const api = new ApiHandler()
+    let obj = {id, typeContent};
     
-    obj.id = id;
-    obj.typeContent = typeContent
-
     const requests = apiRequests.map(item => {
-        return api.get(`/${typeContent}/${id}${item[0]}`)
-        .then(res => {
+        return api.getRequest(typeContent, id, item[0]).then(res => {
             obj[item[1]] = res.data;
         }).catch(e => {
-            console.warn(`TypeData: ${typeContent}; item: ${item[1]} ; Error: ${e}`);
+            console.warn(`TypeData: ${typeContent}; item: ${item[1]}; Error: ${e}`);
         });
     });
     await Promise.all(requests);

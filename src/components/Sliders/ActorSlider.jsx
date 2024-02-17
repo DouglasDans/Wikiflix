@@ -3,9 +3,9 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './Slider.css'
 
-export default function ActorSlider(props){
+export default function ActorSlider({credits}){
 
-    const itens = props.credits.cast.map((item) => {
+    const itens = credits.cast.map((item) => {
         return (
             <section className='actor-card'>
                 <img src={'https://image.tmdb.org/t/p/w500/' + item.profile_path}/>

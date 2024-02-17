@@ -1,0 +1,39 @@
+.info-line{
+   display: flex;
+   flex-direction: column;
+   font-size: 0.9rem;
+   gap: 0.3rem;
+}
+.info-line .titulo{
+   color: var(--color8);
+   font-weight: 600;
+}
+.info-line .titulo{
+   color: var(--color8);
+   font-weight: 600;
+}
+.info-line button{
+   background-color: var(--color3);
+   border: 0;
+   padding: 0.5rem;
+   border-radius: 1rem;
+
+   font-weight: 600;
+   transition: 200ms;
+}
+
+.info-line button a {
+   color: var(--color12);
+   transition: 200ms;
+}
+
+.info-line button:hover{
+   cursor: pointer;
+   background-color: var(--color12);
+   transition: 200ms;
+}
+
+.info-line button:hover a {
+   color: var(--color2);
+   transition: 200ms;
+}

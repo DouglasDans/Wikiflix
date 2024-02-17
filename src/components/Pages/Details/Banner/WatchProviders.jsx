@@ -1,9 +1,7 @@
 import { Fragment } from "react";
-import apiFunctions from "../../../services/API";
 
-export default function WatchProviders(props){
-    let watchProviders = props.data
-
+export default function WatchProviders(watchProviders){
+    
     try {
         if (watchProviders.flatrate === undefined) {
             return(

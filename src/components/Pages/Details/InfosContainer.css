@@ -78,35 +78,3 @@
     font-weight: 600;
 }
 
-@media (max-width: 1100px) {
-    .details-container{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .right-details-container{
-        width: 100%;
-    }
-}
-
-@media (max-width: 1300px) {
-    .details-container{
-        display: flex;
-        flex-direction: column;
-    }
-    .right-details-container{
-        width: 100%;
-    }
-}
-@media (max-width: 600px) {
-    .details-container{
-        display: flex;
-        flex-direction: column;
-        margin: 20px;
-    }
-    .left-details-container h2{
-        font-size: 1rem;
-    }
-    .left-details-container p{
-        font-size: 0.8rem;
-    }
-}

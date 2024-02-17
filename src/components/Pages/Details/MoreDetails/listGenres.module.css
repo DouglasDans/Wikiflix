@@ -1,0 +1,13 @@
+.genreContainer {
+   display: flex;
+   gap: 0.5rem;
+}
+
+.genreSpan{
+   border: 1px solid var(--color8);
+   border-radius: 50px;
+   color: var(--color8);
+   font-size: .9rem;
+   font-weight: 600;
+   padding: 5px 10px;
+}
