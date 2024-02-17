@@ -1,13 +1,13 @@
 import { Fragment } from "react"
-import './ListGenres.css'
+import styles from './listGenres.module.css'
 
 export default function ListGenres({details}){
     try {
         return (
-            <div className="generos-container">
+            <div className={styles.genreContainer}>
                 {details.genres.map((item) => {
                     return(
-                        <span className="genre-span">{item.name}</span>
+                        <span className={styles.genreSpan}>{item.name}</span>
                         )
                     })}
             </div>
