@@ -13,14 +13,21 @@ export default function Banner({details, watchProviders, typeContent}) {
          <div className="container-banner">
             <div className="bg-img-banner">
                <div className="gradient-banner"></div>
-               <img id="img-banner-details" src={"https://image.tmdb.org/t/p/w500/" + details.backdrop_path} />
+
+               {
+                  details.backdrop_path ?
+                     <img id="img-banner-details" src={"https://image.tmdb.org/t/p/w1280/" + details.backdrop_path}/>
+                     :
+                     <></>
+               }
+
             </div>
 
             <div className="container-details-banner">
                <div className="container-details-info">
                   <div className="top-container">
                         <div className="left-container">
-                           <img src={"https://image.tmdb.org/t/p/w500/" + details.poster_path}/>
+                           <img src={details.poster_path ? "https://image.tmdb.org/t/p/w780/" + details.poster_path : "/img/placeholder.png"}/>
                         </div>
                         <div className="right-container">
                            <InfoMain {...details} typeContent={typeContent}/>      

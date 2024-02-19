@@ -18,6 +18,8 @@
     opacity: 0.4;
     right: 0;
     z-index: 0;
+    
+    border: 0;
 }
 
 .container-details-banner{
@@ -28,28 +30,6 @@
     display: flex;
     align-items: center;
 }
-
-/* .container-details-banner .button-voltar{
-    padding-left: 1.9rem;
-    position: absolute;
-    top:0;
-
-    background-color: transparent;
-    border: 0;
-    color: var(--color12);
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-}
-.container-details-banner .button-voltar span{
-    color: var(--color10);
-} */
 
 .container-details-info{
     display: flex;

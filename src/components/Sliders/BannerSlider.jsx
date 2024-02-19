@@ -26,7 +26,7 @@ export default function BannerSlider(props){
                     <section className='main-slider'>
                         <div className="bg-img-banner">
                             <div className="gradient-banner"></div>
-                            <img id="img-banner-details" src={"https://image.tmdb.org/t/p/w500/" + item.backdrop_path} />
+                            <img id="img-banner-details" src={"https://image.tmdb.org/t/p/w1280/" + item.backdrop_path} />
                         </div>
 
                         <div className='slider-banner-content'>
@@ -59,9 +59,7 @@ export default function BannerSlider(props){
                     </section>
                 </Link>
             )
-        })
-    
-            
+        })     
     
     return (
         <div className="carousel-container">
