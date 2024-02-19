@@ -8,7 +8,7 @@ export default function ActorSlider({credits}){
     const itens = credits.cast.map((item) => {
         return (
             <section className='actor-card'>
-                <img src={'https://image.tmdb.org/t/p/w500/' + item.profile_path}/>
+                <img src={ item.profile_path ? 'https://image.tmdb.org/t/p/w185/' + item.profile_path : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"}/>
                 <div>
                     <span>{item.name}</span>
                     <small>{item.character}</small>

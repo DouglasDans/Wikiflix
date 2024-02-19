@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 export default class ApiHandler {
-   private readonly BASE_URL : string = "https://api.themoviedb.org/3";
-   private readonly API_KEY : string = "2b22702bf9dc45986d22dd21add08ec7";
-   private readonly API_LANGUAGE : string = "pt-br"
-   private handler : any
+   BASE_URL = "https://api.themoviedb.org/3";
+   API_KEY  = "2b22702bf9dc45986d22dd21add08ec7";
+   API_LANGUAGE = "pt-br"
+   handler
 
    constructor(){
       this.handler = axios.create({
@@ -18,7 +18,7 @@ export default class ApiHandler {
       })
    }
    
-   async getRequest(typeContent : String, id: String, endpoint : String){
+   async getRequest(typeContent, id, endpoint){
       return await this.handler.get(`/${typeContent}/${id}${endpoint}`)
    }
 

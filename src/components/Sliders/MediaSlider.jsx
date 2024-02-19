@@ -17,7 +17,7 @@ export default function MediaSlider(props) {
             }
 
             const date = new Date(item.release_date || item.first_air_date)
-            const imgURL = item.poster_path ? 'https://image.tmdb.org/t/p/w500/' + item.poster_path : "/img/placeholder.png"
+            const imgURL = item.poster_path ? 'https://image.tmdb.org/t/p/w342/' + item.poster_path : "/img/placeholder.png"
 
             
 
